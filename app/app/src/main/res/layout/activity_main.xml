@@ -8,18 +8,18 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/agriNewsButton"
+        android:id="@+id/weatherButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Weather"
-        app:layout_constraintBottom_toTopOf="@+id/agriNewsButton2"
+        app:layout_constraintBottom_toTopOf="@+id/marketplaceButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/agrinewsButton" />
 
     <Button
-        android:id="@+id/agriNewsButton2"
+        android:id="@+id/marketplaceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Market Place"
@@ -27,14 +27,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/agriNewsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/weatherButton" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/agrinewsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Agri News"
-        app:layout_constraintBottom_toTopOf="@+id/agriNewsButton"
+        app:layout_constraintBottom_toTopOf="@+id/weatherButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
