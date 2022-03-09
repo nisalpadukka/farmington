@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "farmington"
 include ':app'
-include ':layoutmarketplace'
