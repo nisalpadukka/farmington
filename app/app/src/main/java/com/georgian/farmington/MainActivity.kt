@@ -11,11 +11,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val agriNewsButtonVar: Button = findViewById (R.id.agriNewsButton)
+        val agriNewsButtonVar: Button = findViewById (R.id.agrinewsButton)
         agriNewsButtonVar.setOnClickListener()
         {
             val intent = Intent(this, AgriNewsActivity::class.java)
             startActivity(intent)
         }
+
+        val weatherButtonVar: Button = findViewById (R.id.weatherButton)
+        weatherButtonVar.setOnClickListener()
+        {
+            val intent = Intent(this, WeatherActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
