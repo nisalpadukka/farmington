@@ -79,10 +79,6 @@ class RegistrationActivity : AppCompatActivity() {
                 params.put("Email",email)
                 params.put("Pwd",password)
                 params.put("Phone",mobile)
-                //                params.put("cpsw",cpassword)
-                // params.put("ustype","user_amitha")
-                // params.put("androidid","")
-                // params.put("gender","")
 
 //                Toast.makeText(this@RegistrationActivity,"http://127.0.0.1/loginregistration/registration.php? "+params,Toast.LENGTH_LONG).show()
     try {
