@@ -84,7 +84,7 @@
                 android:weightSum="3">
 
                 <TextView
-                    android:id="@+id/temp"
+                    android:id="@+id/status"
                     android:layout_width="71dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
