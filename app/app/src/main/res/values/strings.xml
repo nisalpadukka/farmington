@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">farmington</string>
+    <string name="weather">WEATHER</string>
+    <string name="barrie">Barrie</string>
 </resources>
