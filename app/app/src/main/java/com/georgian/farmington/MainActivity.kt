@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         val agriNewsButtonVar: Button = findViewById (R.id.agrinewsButton)
         agriNewsButtonVar.setOnClickListener()
         {
-            val intent = Intent(this, AgriNewsActivity::class.java)
+            val intent = Intent(this, AgriNewsHomeActivity::class.java)
             startActivity(intent)
         }
 
