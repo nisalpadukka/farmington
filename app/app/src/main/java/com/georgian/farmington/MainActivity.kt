@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         val agriNewsButtonVar: Button = findViewById (R.id.agrinewsButton)
         agriNewsButtonVar.setOnClickListener()
         {
-            val intent = Intent(this, AgriNewsActivity::class.java)
+            val intent = Intent(this, AgriNewsHomeActivity::class.java)
             startActivity(intent)
         }
 
@@ -24,10 +25,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, WeatherActivity::class.java)
             startActivity(intent)
         }
-        val profile: Button = findViewById (R.id.profilebutton)
-        profile.setOnClickListener()
+
+        val profileButtonVar: ImageButton = findViewById (R.id.profileButton)
+        profileButtonVar.setOnClickListener()
         {
-            val intent = Intent(this, ProfileActivity::class.java)
+            val intent = Intent(this, ProfilePageActivity::class.java)
             startActivity(intent)
         }
 

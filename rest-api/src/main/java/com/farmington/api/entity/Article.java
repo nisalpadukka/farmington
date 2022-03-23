@@ -22,9 +22,10 @@ public class Article {
     @Column
     private String description;
     private String channel;
+    /*
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
-    private String image;
+    private String image;*/
 
     public int getId() {
         return id;
@@ -66,6 +67,7 @@ public class Article {
         this.channel = channel;
     }
 
+    /*
     public String getImage() {
         return image;
     }
@@ -73,11 +75,12 @@ public class Article {
     public void setImage(String image) {
         this.image = image;
     }
-
+*/
+    /*
     @Override
     public String toString() {
         return "Product [id=" + id + ", topc=" + topic + ", description="
                 + description + ", channel=" + image + ", image="
                 + image + "]";
-    }
+    }*/
 }
