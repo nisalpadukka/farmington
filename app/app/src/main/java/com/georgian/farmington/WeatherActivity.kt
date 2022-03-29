@@ -14,7 +14,7 @@ import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 class WeatherActivity : AppCompatActivity() {
-    val CITY: String = "london"
+    val CITY: String = "Barrie"
     val API: String = "c36ffcd6dbd3d32e3deb52499600743c"
 
 
@@ -66,10 +66,8 @@ class WeatherActivity : AppCompatActivity() {
                 val tempMax = "Max Temp: " + main.getString("temp_max") + "°C"
                 val pressure = main.getString("pressure")
                 val humidity = main.getString("humidity")
-                val Wintermix = wind.getString("Wintermix")
-                val Visibility = main.getString("Visibility")
-                val status = main.getString("status")
-                val feelslike = main.getString("feelslike")
+                val speed = wind.getString("speed")
+                val feelslike = main.getString("feels_like")
 
                 val address = jsonObj.getString("name") + ", " + sys.getString("country")
                 /* Populating extracted data into our views */
@@ -77,10 +75,8 @@ class WeatherActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.temp).text = temp
                 findViewById<TextView>(R.id.temp_min).text = tempMin
                 findViewById<TextView>(R.id.temp_max).text = tempMax
-                findViewById<TextView>(R.id.Visibility).text = Visibility
-                findViewById<TextView>(R.id.wintermix).text = Wintermix
+                findViewById<TextView>(R.id.wintermix).text = speed
                 findViewById<TextView>(R.id.humidity).text = humidity
-                findViewById<TextView>(R.id.status).text = status
                 findViewById<TextView>(R.id.feelslike).text = feelslike
 
                 /* Views populated, Hiding the loader, Showing the main design */
