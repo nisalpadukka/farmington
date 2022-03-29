@@ -2,14 +2,17 @@ package com.georgian.farmington
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.*
 
 class AgriNewsHomeActivity : AppCompatActivity() {
 
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<AgriNewsRecyclerViewAdapter.ViewHolder>? = null
-
+    private lateinit var layoutManager: RecyclerView.LayoutManager
+    private lateinit var adapter: AgriNewsRecyclerViewAdapter
+    private lateinit var db: FirebaseFirestore
+    private lateinit var articleArrayList : ArrayList<Article>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +21,36 @@ class AgriNewsHomeActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = layoutManager;
 
-        adapter = AgriNewsRecyclerViewAdapter()
+        articleArrayList = arrayListOf()
+
+        adapter = AgriNewsRecyclerViewAdapter(articleArrayList)
         recyclerView.adapter = adapter;
+
+        fetchNewsArticles();
+    }
+
+    private fun fetchNewsArticles(){
+        db = FirebaseFirestore.getInstance();
+        db.collection("Articles").addSnapshotListener(object : EventListener<QuerySnapshot> {
+            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+
+                if (error != null) {
+                    Log.e("Firebase", error.toString())
+                    return
+                }
+
+                for (article : DocumentChange in value?.documentChanges!!){
+
+                    if (article.type == DocumentChange.Type.ADDED){
+                        articleArrayList.add(article.document.toObject(Article::class.java))
+                    }
+
+                }
+
+                adapter.notifyDataSetChanged()
+            }
+
+        })
+
     }
 }
