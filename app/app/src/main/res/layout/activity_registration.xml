@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_height="match_parent"
-    android:background="@drawable/bg6"
+    android:background="#00CC00"
     android:alpha="0.7"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -14,14 +14,14 @@
         android:gravity="center"
         android:focusableInTouchMode="true"
         tools:context=".RegisterActivity">
-        <ImageView
+        <!--ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:id="@+id/icon"
             android:src="@drawable/icon"
             android:layout_gravity="center"
-            />
+            /-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/fname"
             android:alpha="0.8"
-            android:background="@drawable/editboxborder"
+            android:background="#00CC00"
             android:hint="First Name"
             android:paddingLeft="15sp"
             android:paddingTop="10sp"
@@ -55,7 +55,7 @@
             android:paddingLeft="15sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
-            android:background="@drawable/editboxborder"
+            android:background="#00CC00"
             android:hint="Last Name"
             android:layout_gravity="center"
             android:layout_margin="10dp"
@@ -70,7 +70,7 @@
             android:paddingLeft="15sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
-            android:background="@drawable/editboxborder"
+            android:background="#00CC00"
             android:hint="Password"
             android:inputType="textPassword"
             android:layout_gravity="center"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/cpassword"
             android:alpha="0.8"
-            android:background="@drawable/editboxborder"
+            android:background="#00CC00"
             android:paddingLeft="15sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/mobile"
             android:alpha="0.8"
-            android:background="@drawable/editboxborder"
+            android:background="#00CC00"
             android:paddingLeft="15sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
@@ -115,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/email"
-            android:background="@drawable/editboxborder"
+            android:background="#00CC00"
             android:paddingLeft="15sp"
             android:alpha="0.8"
             android:paddingTop="10sp"

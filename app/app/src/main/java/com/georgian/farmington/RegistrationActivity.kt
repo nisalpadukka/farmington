@@ -1,4 +1,4 @@
-package com.example.farmington
+package com.georgian.farmington
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,19 +7,13 @@ import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.loopj.android.http.AsyncHttpClient
-import com.loopj.android.http.JsonHttpResponseHandler
-import com.loopj.android.http.RequestParams
-import cz.msebera.android.httpclient.Header
-import org.json.JSONArray
-import org.json.JSONObject
 
 class RegistrationActivity : AppCompatActivity() {
 
     lateinit var ftname:String
     lateinit var ltname:String
     lateinit var password:String
-   lateinit var cpassword:String
+    lateinit var cpassword:String
     lateinit var email:String
     lateinit var mobile:String
 
@@ -68,51 +62,7 @@ class RegistrationActivity : AppCompatActivity() {
                 email=em.text.toString()
                 mobile=mob.text.toString()
                 password=pass.text.toString()
-               cpassword=cpass.text.toString()
-
-
-                var asynchttpclient= AsyncHttpClient()
-                var params= RequestParams()
-
-                params.put("FName",ftname)
-                params.put("LName",ltname)
-                params.put("Email",email)
-                params.put("Pwd",password)
-                params.put("Phone",mobile)
-
-//                Toast.makeText(this@RegistrationActivity,"http://127.0.0.1/loginregistration/registration.php? "+params,Toast.LENGTH_LONG).show()
-    try {
-
-
-                asynchttpclient.get("http://127.0.0.1/loginregistration/registration.php?",params, object : JsonHttpResponseHandler(){
-
-                    override fun onSuccess(
-                        statusCode: Int,
-                        headers: Array<out Header>?,
-                        response: JSONObject?
-                    ) {
-                        super.onSuccess(statusCode, headers, response)
-                       Toast.makeText(this@RegistrationActivity,"Success"+response,Toast.LENGTH_LONG).show()
-                    }
-
-                    override fun onFailure(
-                        statusCode: Int,
-                        headers: Array<out Header>?,
-                        throwable: Throwable?,
-                        errorResponse: JSONArray?
-                    ) {
-                        super.onFailure(statusCode, headers, throwable, errorResponse)
-                        Toast.makeText(this@RegistrationActivity,"error"+errorResponse, Toast.LENGTH_LONG).show()
-
-                    }
-                })
-    }catch (e :Exception){
-        Toast.makeText(this@RegistrationActivity,"Exception "+e,Toast.LENGTH_LONG).show()
-    }
-                //Toast.makeText(this, "User registered successfully", Toast.LENGTH_LONG).show()
-//              var intent = Intent(this, LoginActivity::class.java)
-//                startActivity(intent)
-//                finish()
+                cpassword=cpass.text.toString()
             }
         }
         canreg.setOnClickListener {
@@ -134,4 +84,3 @@ class RegistrationActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 }
-
