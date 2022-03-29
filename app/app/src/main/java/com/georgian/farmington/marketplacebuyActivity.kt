@@ -34,8 +34,6 @@ class marketplacebuyActivity : AppCompatActivity() {
 
             // Getting the checked radio button id
             // from the radio group
-            val selectedOption: Int = radioGroup!!.checkedRadioButtonId
-
             // Assigning id of the checked radio button
             //radioButton = findViewById(selectedOption)
 
