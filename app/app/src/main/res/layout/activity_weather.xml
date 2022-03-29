@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:padding="25dp"
     android:background="#C2E8C7">
 
@@ -70,7 +71,7 @@
                 <TextView
                     android:id="@+id/temp"
                     android:layout_width="93dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="59dp"
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif-thin"
                     android:text="-2°C"
@@ -164,9 +165,10 @@
                         android:layout_height="5dp" />
 
                     <TextView
+                        android:id="@+id/wintermix"
                         android:layout_width="127dp"
                         android:layout_height="wrap_content"
-                        android:text="Winter mix: 0mm in 24 hours"
+                        android:text="Wintermix"
                         android:textSize="12dp" />
 
                     <TextView
@@ -209,9 +211,10 @@
                         android:layout_height="10dp" />
 
                     <TextView
+                        android:id="@+id/feelslike"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Feels like"
+                        android:text="Feelslike"
                         android:textSize="12dp" />
 
                     <TextView
