@@ -102,16 +102,16 @@
     <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
 
 
-<string name="Heading1" translatable="false">MarketplaceSell</string>
-<string name="RadioButton1">Sell crops</string>
-<string name="radioButton2">Sell vagitables</string>
-<string name="radioButton3">Sell fruits</string>
+    <string name="Heading1" translatable="false">MarketplaceSell</string>
+    <string name="RadioButton1">Sell crops</string>
+    <string name="radioButton2">Sell vagitables</string>
+    <string name="radioButton3">Sell fruits</string>
     <string name="Heading2">BUY</string>
     <string name="RadioButton4">Buy crops</string>
     <string name="radioButton5">Buy vagitables</string>
     <string name="radioButton6">Buy fruits</string>
     <string name="Buy">BUY</string>
     <string name="Sell">SELL</string>
-<string name="CountineusButton">Countineus</string>
+    <string name="CountineusButton">Countineus</string>
     <string name="buy">\@string</string>
 </resources>
