@@ -7,39 +7,48 @@
     android:background="@color/theme_color"
     android:backgroundTint="#B8E9C4">
 
-    <Button
+    <ImageButton
         android:id="@+id/weatherButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="202dp"
+        android:layout_height="102dp"
         android:layout_marginStart="38dp"
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="41dp"
+        android:background="#AAEBC1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/weather"
         android:text="Weather"
         app:layout_constraintBottom_toTopOf="@+id/agrinewsButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
+    <ImageButton
         android:id="@+id/marketplaceButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="205dp"
+        android:layout_height="101dp"
         android:layout_marginStart="38dp"
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="198dp"
+        android:background="#AAEBC1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/marketplace"
         android:text="Market Place"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agrinewsButton" />
 
-    <Button
+    <ImageButton
         android:id="@+id/agrinewsButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="207dp"
+        android:layout_height="96dp"
         android:layout_marginStart="36dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="47dp"
+        android:background="#AAEBC1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/news"
         android:text="Agri News"
         app:layout_constraintBottom_toTopOf="@+id/marketplaceButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +79,6 @@
         android:layout_marginEnd="16dp"
         android:background="#AAEBC1"
         android:scaleType="fitCenter"
-        android:src="@drawable/imgg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
