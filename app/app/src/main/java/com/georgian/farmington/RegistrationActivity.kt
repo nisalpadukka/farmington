@@ -3,79 +3,89 @@ package com.georgian.farmington
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.georgian.farmington.databinding.ActivityRegistrationBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+
 
 class RegistrationActivity : AppCompatActivity() {
 
-    lateinit var ftname:String
-    lateinit var ltname:String
-    lateinit var password:String
-    lateinit var cpassword:String
-    lateinit var email:String
-    lateinit var mobile:String
+    // for binding data to firebase
+    private lateinit var binding: ActivityRegistrationBinding
+    private lateinit var userfirebase: FirebaseAuth
 
+//    var reg = findViewById<Button>(R.id.btnregister)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
-        //
-        var register = findViewById<Button>(R.id.btnregister)
-        var canreg = findViewById<Button>(R.id.btncancelregister)
-        var fn = findViewById<EditText>(R.id.fname)
-        var ln = findViewById<EditText>(R.id.lname)
-        var mob = findViewById<EditText>(R.id.mobile)
-        var em = findViewById<EditText>(R.id.email)
-        var pass = findViewById<EditText>(R.id.password)
-        var cpass = findViewById<EditText>(R.id.cpassword)
+        var fName = findViewById<EditText>(R.id.etxtfname)
+        var lName = findViewById<EditText>(R.id.etxtlname)
+        var pwd = findViewById<EditText>(R.id.etxtpassword)
+        var cPwd = findViewById<EditText>(R.id.etxtcpassword)
+        var mobile = findViewById<EditText>(R.id.etxtmobile)
+        var email = findViewById<EditText>(R.id.etxtemail)
+        var btncancel = findViewById<Button>(R.id.btncancelregister)
 
-        // validating empty fields
-        register.setOnClickListener {
+        binding = ActivityRegistrationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        userfirebase = FirebaseAuth.getInstance()
 
-            if (TextUtils.isEmpty(fn.text)) {
-                fn.setError("FirstName required")
-            } else if (TextUtils.isEmpty(ln.text)) {
-                ln.setError("Last Name required")
-            } else if (TextUtils.isEmpty(mob.text)) {
-                mob.setError("Mobile number required")
-            } else if (TextUtils.isEmpty(pass.text)) {
-                pass.setError("Password required")
-            } else if (TextUtils.isEmpty(cpass.text)) {
-                cpass.setError("Confirm password required")
-            }else if (TextUtils.isEmpty(em.text)) {
-                cpass.setError("Email required")
-            } else if (pass.text.toString() != cpass.text.toString()) {
-                pass.text.clear()
-                cpass.text.clear()
-                Toast.makeText(
-                    this,
-                    "password and confirm password does not match",
-                    Toast.LENGTH_LONG
-                ).show()
-            } else {
+        // if user clicks on cancel button
+//       binding.btncancelregister.setOnClickListener ({
+//            fName.text.clear()
+//            lName.text.clear()
+//            mobile.text.clear()
+//            email.text.clear()
+//            pwd.text.clear()
+//            cPwd.text.clear()
+//        })
 
-                ftname=fn.text.toString()
-                ltname=ln.text.toString()
-                email=em.text.toString()
-                mobile=mob.text.toString()
-                password=pass.text.toString()
-                cpassword=cpass.text.toString()
-            }
-        }
-        canreg.setOnClickListener {
-            fn.text.clear()
-            ln.text.clear()
-            mob.text.clear()
-            em.text.clear()
-            pass.text.clear()
-            cpass.text.clear()
-        }
-
+        binding.btnregister.setOnClickListener({
+//            registerUser()
+          fName.text.clear()
+            lName.text.clear()
+          mobile.text.clear()
+          email.text.clear()
+           pwd.text.clear()
+          cPwd.text.clear()
+        })
     }
 
+    private fun registerUser() {
+        val email = binding.etxtemail.text.toString().trim()
+        val pwd = binding.etxtpassword.text.toString().trim()
+
+        if (email.isNotEmpty() && pwd.isNotEmpty()) {
+            userfirebase.createUserWithEmailAndPassword(email, pwd)
+                .addOnCompleteListener(RegistrationActivity()) { task ->
+
+                    if (task.isSuccessful()) {
+
+                        Toast.makeText(this, "user registered in successfully", Toast.LENGTH_SHORT)
+                            .show()
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+                    } else {
+                        Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+//
+                }
+                .addOnFailureListener(RegistrationActivity()) { task ->
+                    Toast.makeText(this, "failure", Toast.LENGTH_SHORT)
+                        .show()
+                }
+        } else {
+            Toast.makeText(this, "Enter username and password", Toast.LENGTH_SHORT).show()
+        }
+    }
+  //   if user presses back button
     override fun onBackPressed() {
         var intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
@@ -84,3 +94,4 @@ class RegistrationActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 }
+

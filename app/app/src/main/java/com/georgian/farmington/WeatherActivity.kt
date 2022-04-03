@@ -1,5 +1,6 @@
 package com.georgian.farmington
 
+import android.content.Intent
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,10 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
+import com.georgian.farmington.databinding.ActivityLoginBinding
+import com.georgian.farmington.databinding.ActivityWeatherBinding
+import com.google.firebase.auth.FirebaseAuth
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
@@ -16,7 +21,6 @@ import java.util.*
 class WeatherActivity : AppCompatActivity() {
     val CITY: String = "Barrie"
     val API: String = "c36ffcd6dbd3d32e3deb52499600743c"
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,5 +91,11 @@ class WeatherActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
             }
         }
+    }
+    override fun onBackPressed() {
+        var intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+        super.onBackPressed()
     }
 }
