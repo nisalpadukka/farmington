@@ -7,5 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="cardcolor">#99D8DFD9</color>
+    <color name="crop_detail_heading">#244626</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="colorPrimary">#58AA32</color>
+    <color name="colorPrimaryDark">#00574B</color>
     <color name="theme_color">#C2E8C7</color>
 </resources>
