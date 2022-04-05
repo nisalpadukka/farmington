@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">farmington</string>
     <string name="title_activity_scrolling">Agricultural News</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -90,22 +89,9 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_marketplace">Marketplace</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label" translatable="false">First Fragment</string>
-    <string name="second_fragment_label" translatable="false">Second Fragment</string>
-    <string name="next" translatable="false">Next</string>
-    <string name="previous" translatable="false">Previous</string>
-
-    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
-    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
 
 
-    <string name="Heading1" translatable="false">MarketplaceSell</string>
-    <string name="RadioButton1">Sell crops</string>
-    <string name="radioButton2">Sell vagitables</string>
-    <string name="radioButton3">Sell fruits</string>
     <string name="Heading2">BUY</string>
     <string name="RadioButton4">Buy crops</string>
     <string name="radioButton5">Buy vagitables</string>
@@ -113,5 +99,4 @@
     <string name="Buy">BUY</string>
     <string name="Sell">SELL</string>
     <string name="CountineusButton">Countineus</string>
-    <string name="buy">\@string</string>
 </resources>

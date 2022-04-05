@@ -10,8 +10,6 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import java.io.File
 
@@ -27,6 +25,8 @@ class HomeActivity : AppCompatActivity() {
         val pathReference = storageRef.child("image/imgg.png")
 
         val localFile = File.createTempFile("imgg", "png")
+
+         this.supportActionBar?.title = "Farmington - Home"
 
          pathReference.getFile(localFile).addOnSuccessListener {
              // Local temp file has been created
@@ -58,5 +58,15 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+         val marketPlaceButoon: ImageButton = findViewById (R.id.marketplaceButton)
+         marketPlaceButoon.setOnClickListener()
+         {
+             val intent = Intent(this, MarketplaceActivity::class.java)
+             startActivity(intent)
+         }
+
+    }
+    override fun onBackPressed() {
+        finish()
     }
 }
