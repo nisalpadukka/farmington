@@ -18,42 +18,25 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegistrationBinding
     private lateinit var userfirebase: FirebaseAuth
 
-//    var reg = findViewById<Button>(R.id.btnregister)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
-
-        var fName = findViewById<EditText>(R.id.etxtfname)
-        var lName = findViewById<EditText>(R.id.etxtlname)
-        var pwd = findViewById<EditText>(R.id.etxtpassword)
-        var cPwd = findViewById<EditText>(R.id.etxtcpassword)
-        var mobile = findViewById<EditText>(R.id.etxtmobile)
-        var email = findViewById<EditText>(R.id.etxtemail)
-        var btncancel = findViewById<Button>(R.id.btncancelregister)
-
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         userfirebase = FirebaseAuth.getInstance()
 
         // if user clicks on cancel button
-//       binding.btncancelregister.setOnClickListener ({
-//            fName.text.clear()
-//            lName.text.clear()
-//            mobile.text.clear()
-//            email.text.clear()
-//            pwd.text.clear()
-//            cPwd.text.clear()
-//        })
+        binding.btncancelregister.setOnClickListener ({
+            binding.etxtfname.text.clear()
+            binding.etxtlname.text.clear()
+            binding.etxtcpassword.text.clear()
+            binding.etxtpassword.text.clear()
+            binding.etxtemail.text.clear()
+            binding.etxtmobile.text.clear()
+        })
 
         binding.btnregister.setOnClickListener({
-//            registerUser()
-          fName.text.clear()
-            lName.text.clear()
-          mobile.text.clear()
-          email.text.clear()
-           pwd.text.clear()
-          cPwd.text.clear()
+            registerUser()
         })
     }
 
