@@ -58,6 +58,13 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+         val marketPlaceButoon: ImageButton = findViewById (R.id.marketplaceButton)
+         marketPlaceButoon.setOnClickListener()
+         {
+             val intent = Intent(this, MarketplaceActivity::class.java)
+             startActivity(intent)
+         }
+
     }
     override fun onBackPressed() {
         finish()
