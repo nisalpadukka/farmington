@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_height="match_parent"
-    android:background="#00CC00"
-    android:alpha="0.7"
+    android:background="#d3f2d3"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="15dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:focusableInTouchMode="true"
-        tools:context=".RegisterActivity">
-        <!--ImageView
+        tools:context=".RegistrationActivity">
+        <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:id="@+id/icon"
             android:src="@drawable/icon"
             android:layout_gravity="center"
-            /-->
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="REGISTER HERE"
+            android:textColor="#000000"
+            android:text="Register Here"
             android:textSize="25sp"
             android:layout_margin="10dp"/>
 
@@ -35,9 +32,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/fname"
+            android:id="@+id/etxtfname"
             android:alpha="0.8"
-            android:background="#00CC00"
+            android:background="@drawable/editboxborder"
             android:hint="First Name"
             android:paddingLeft="15sp"
             android:paddingTop="10sp"
@@ -45,17 +42,16 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:singleLine="true"
-            android:imeOptions="actionNext"
-            />
+            android:imeOptions="actionNext" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/lname"
+            android:id="@+id/etxtlname"
             android:alpha="0.8"
+            android:background="@drawable/editboxborder"
             android:paddingLeft="15sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
-            android:background="#00CC00"
             android:hint="Last Name"
             android:layout_gravity="center"
             android:layout_margin="10dp"
@@ -65,12 +61,12 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/password"
+            android:id="@+id/etxtpassword"
+            android:background="@drawable/editboxborder"
             android:alpha="0.8"
             android:paddingLeft="15sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
-            android:background="#00CC00"
             android:hint="Password"
             android:inputType="textPassword"
             android:layout_gravity="center"
@@ -81,9 +77,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cpassword"
+            android:id="@+id/etxtcpassword"
             android:alpha="0.8"
-            android:background="#00CC00"
+            android:background="@drawable/editboxborder"
             android:paddingLeft="15sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
@@ -98,9 +94,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/mobile"
+            android:id="@+id/etxtmobile"
             android:alpha="0.8"
-            android:background="#00CC00"
+            android:background="@drawable/editboxborder"
             android:paddingLeft="15sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
@@ -114,8 +110,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/email"
-            android:background="#00CC00"
+            android:id="@+id/etxtemail"
+            android:background="@drawable/editboxborder"
             android:paddingLeft="15sp"
             android:alpha="0.8"
             android:paddingTop="10sp"

@@ -40,6 +40,7 @@
                 android:id="@+id/profileImg"
                 android:layout_width="wrap_content"
                 android:layout_height="130dp"
+                android:src="@drawable/default_profile"
                 android:layout_gravity="center"/>
 
             <Space

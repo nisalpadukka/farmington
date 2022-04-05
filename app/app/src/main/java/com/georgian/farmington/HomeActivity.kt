@@ -26,6 +26,8 @@ class HomeActivity : AppCompatActivity() {
 
         val localFile = File.createTempFile("imgg", "png")
 
+         this.supportActionBar?.title = "Farmington - Home"
+
          pathReference.getFile(localFile).addOnSuccessListener {
              // Local temp file has been created
              val profileImgImageView : ImageButton = findViewById(R.id.profileButton)
@@ -56,5 +58,8 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+    override fun onBackPressed() {
+        finish()
     }
 }
