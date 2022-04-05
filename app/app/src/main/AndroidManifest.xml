@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.georgian.farmington">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
-        android:logo="@drawable/icon"
         android:label="Farmington"
+        android:logo="@drawable/icon"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Farmington"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfilePageActivity"
             android:theme="@style/AppTheme"
-            android:usesCleartextTraffic="true"/>
-        <activity
-            android:name=".ForgotPasswordActivity"/>
+            android:usesCleartextTraffic="true" />
+        <activity android:name=".ForgotPasswordActivity" />
         <activity
             android:name=".AgriNewsHomeActivity"
             android:exported="false" />
@@ -32,12 +37,12 @@
             android:theme="@style/Theme.Farmington.NoActionBar" />
         <activity
             android:name=".HomeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SplashActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,13 +51,13 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".RegistrationActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
+        <activity
+            android:name=".MarketplaceActivity"
+            android:exported="false" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
