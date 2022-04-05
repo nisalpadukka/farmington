@@ -79,8 +79,7 @@ class WeatherActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.temp).text = temp
                 findViewById<TextView>(R.id.temp_min).text = tempMin
                 findViewById<TextView>(R.id.temp_max).text = tempMax
-                findViewById<TextView>(R.id.wintermix).text = speed
-                findViewById<TextView>(R.id.humidity).text = humidity
+                findViewById<TextView>(R.id.humidity).text = "Humidity: " + humidity
                 findViewById<TextView>(R.id.feelslike).text = feelslike
 
                 /* Views populated, Hiding the loader, Showing the main design */
@@ -93,7 +92,7 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
     override fun onBackPressed() {
-        var intent = Intent(this, LoginActivity::class.java)
+        var intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
         finish()
         super.onBackPressed()

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d3f2d3"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     android:padding="25dp"
-    android:background="#C2E8C7">
+    android:textAlignment="center">
 
     <RelativeLayout
         android:id="@+id/mainContainer"
@@ -34,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="LOW:-3°"
-                android:textSize="10dp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
             <ImageView
@@ -49,7 +51,8 @@
                 android:layout_height="27dp"
                 android:layout_gravity="center"
                 android:text="HIGH:2°"
-                android:textSize="10dp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -75,7 +78,9 @@
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif-thin"
                     android:text="-2°C"
-                    android:textSize="35dp" />
+                    android:textAlignment="center"
+                    android:textSize="35dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -87,16 +92,18 @@
                 <TextView
                     android:id="@+id/status"
                     android:layout_width="71dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:text="Snow"
-                    android:textSize="15dp" />
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#C2E8C7"
+                    android:background="#d3f2d3"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -113,7 +120,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#C2E8C7"
+                    android:background="#d3f2d3"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -151,10 +158,10 @@
                 android:weightSum="4">
 
                 <LinearLayout
-                    android:layout_width="148dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="#C2E8C7"
+                    android:background="#d3f2d3"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -165,25 +172,21 @@
                         android:layout_height="5dp" />
 
                     <TextView
-                        android:id="@+id/wintermix"
-                        android:layout_width="127dp"
-                        android:layout_height="wrap_content"
-                        android:text="Wintermix"
-                        android:textSize="12dp" />
-
-                    <TextView
                         android:id="@+id/humidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="HUMIDITY: 80%"
-                        android:textSize="11dp" />
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/Visibility"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:text="Visibility: 5km"
-                        android:textSize="11dp" />
+                        android:textAlignment="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -197,10 +200,10 @@
                     android:layout_height="wrap_content" />
 
                 <LinearLayout
-                    android:layout_width="87dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#C2E8C7"
+                    android:background="#d3f2d3"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -208,20 +211,23 @@
 
                     <Space
                         android:layout_width="wrap_content"
-                        android:layout_height="10dp" />
+                        android:layout_height="20dp" />
+
+                    <TextView
+                        android:layout_width="128dp"
+                        android:layout_height="wrap_content"
+                        android:text="Feels Like"
+                        android:textAlignment="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/feelslike"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Feelslike"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="-4°"
-                        android:textSize="14dp" />
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="85dp"
@@ -230,7 +236,7 @@
                 </LinearLayout>
 
                 <Space
-                    android:layout_width="10dp"
+                    android:layout_width="20dp"
                     android:layout_height="wrap_content" />
 
 
@@ -240,11 +246,19 @@
 
     </RelativeLayout>
 
-    <ProgressBar android:id="@+id/loader" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_centerInParent="true"
-        android:visibility="gone"/>
-    <TextView android:id="@+id/errorText" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_centerInParent="true"
-        android:visibility="gone" android:text="Something went wrong"/>
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Something went wrong"
+        android:visibility="gone" />
 
 </RelativeLayout>

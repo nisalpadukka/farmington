@@ -53,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "user added successfully", Toast.LENGTH_SHORT)
                             .show()
-                        startActivity(Intent(this, WeatherActivity::class.java))
+                        startActivity(Intent(this, HomeActivity::class.java))
                         finish()
                     } else {
                         Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT)
