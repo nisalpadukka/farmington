@@ -17,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        this.supportActionBar?.title = "Farmington - Login"
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         user = FirebaseAuth.getInstance()

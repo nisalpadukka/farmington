@@ -14,6 +14,7 @@ class ProductActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product)
 
         val product = intent.getParcelableExtra("product") as? Product
+        this.supportActionBar?.title = "Farmington - " + product?.title
         findViewById<TextView>(R.id.textView3).text = product?.title + "              " + product?.price + " $/Kg"
         findViewById<TextView>(R.id.textView2).text = product?.description
         var img = R.drawable.barley;

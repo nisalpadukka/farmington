@@ -15,6 +15,8 @@ class ProfilePageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile_page)
         val storageRef = Firebase.storage.reference
 
+        this.supportActionBar?.title = "Farmington - Profile"
+
 // Create a reference with an initial file path and name
         val pathReference = storageRef.child("image/imgg.png")
 

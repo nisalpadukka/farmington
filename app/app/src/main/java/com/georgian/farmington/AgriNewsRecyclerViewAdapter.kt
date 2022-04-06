@@ -1,14 +1,20 @@
 package com.georgian.farmington
 
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import java.io.File
 
 class AgriNewsRecyclerViewAdapter(private val articleList: ArrayList<Article>, private val onArticleListner: OnArticleListner) : RecyclerView.Adapter<AgriNewsRecyclerViewAdapter.ViewHolder>() {
 
+    val storageRef = Firebase.storage.reference
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.agri_news_home_card_layout, parent, false)
@@ -18,8 +24,16 @@ class AgriNewsRecyclerViewAdapter(private val articleList: ArrayList<Article>, p
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article:Article = articleList[position]
         holder.articleTitle.text = article.title
-        holder.articleSummary.text = article.summary;
-        //holder.articleImage.setImageResource(articleList[position])
+        holder.articleSummary.text = article.summary
+        holder.articlePos = position
+        holder.articleImage.setImageResource(R.drawable.loading)
+        val pathReference = storageRef.child("article_images/" + article.image)
+        val localFile = File.createTempFile(article.image, "png")
+        pathReference.getFile(localFile).addOnSuccessListener {
+            holder.articleImage.setImageBitmap(BitmapFactory.decodeFile(localFile.absolutePath))
+        }.addOnFailureListener{
+            holder.articleImage.setImageResource(R.drawable.ricepic)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -30,6 +44,7 @@ class AgriNewsRecyclerViewAdapter(private val articleList: ArrayList<Article>, p
         var articleImage:ImageView
         var articleTitle:TextView
         var articleSummary:TextView
+        var articlePos:Int = 0;
 
         init {
             articleImage = articleView.findViewById(R.id.article_image)
@@ -37,7 +52,7 @@ class AgriNewsRecyclerViewAdapter(private val articleList: ArrayList<Article>, p
             articleSummary = articleView.findViewById(R.id.article_summary)
 
             articleView.setOnClickListener(){
-                onArticleListner.onArticleClick()
+                onArticleListner.onArticleClick(articleList[articlePos])
             }
 
         }
@@ -45,7 +60,7 @@ class AgriNewsRecyclerViewAdapter(private val articleList: ArrayList<Article>, p
     }
 
     public interface OnArticleListner{
-        fun onArticleClick(){
+        fun onArticleClick(article: Article){
         }
     }
 }

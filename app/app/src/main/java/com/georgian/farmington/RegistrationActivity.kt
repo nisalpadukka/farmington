@@ -21,6 +21,7 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+        this.supportActionBar?.title = "Farmington - Registration"
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         userfirebase = FirebaseAuth.getInstance()

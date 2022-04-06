@@ -14,6 +14,7 @@ class MarketplaceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_marketplace)
 
+        this.supportActionBar?.title = "Farmington - Market Place"
         val productButton: ImageButton = findViewById (R.id.wheatimage)
         productButton.setOnClickListener()
         {

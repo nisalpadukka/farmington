@@ -17,6 +17,8 @@ class AgriNewsHomeActivity : AppCompatActivity(), AgriNewsRecyclerViewAdapter.On
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        this.supportActionBar?.title = "Farmington - Agri News"
         setContentView(R.layout.activity_agri_news_home)
         layoutManager = LinearLayoutManager(this)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
@@ -54,8 +56,10 @@ class AgriNewsHomeActivity : AppCompatActivity(), AgriNewsRecyclerViewAdapter.On
         })
 
     }
-    override fun onArticleClick() {
+    override fun onArticleClick(article: Article) {
         val intent = Intent(this, AgriNewsActivity::class.java)
+        intent.putExtra("article", article)
         startActivity(intent)
+
     }
 }
