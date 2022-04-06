@@ -1,12 +1,14 @@
 package com.georgian.farmington
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.georgian.farmington.databinding.ActivityNewsBinding
 import com.google.firebase.firestore.*
 
-class AgriNewsActivity : AppCompatActivity() {
+class AgriNewsActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityNewsBinding
 
@@ -19,4 +21,5 @@ class AgriNewsActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         binding.toolbarLayout.title = title
     }
+
 }

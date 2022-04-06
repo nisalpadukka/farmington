@@ -9,7 +9,9 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.ktx.storage
 import java.io.File
 
@@ -21,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
         // Create a storage reference from our app
         val storageRef = Firebase.storage.reference
 
-// Create a reference with an initial file path and name
+        // Create a reference with an initial file path and name
         val pathReference = storageRef.child("image/imgg.png")
 
         val localFile = File.createTempFile("imgg", "png")
@@ -64,6 +66,18 @@ class HomeActivity : AppCompatActivity() {
              val intent = Intent(this, MarketplaceActivity::class.java)
              startActivity(intent)
          }
+
+         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+             if (!task.isSuccessful) {
+                 Log.i("PushN", "Fetching FCM registration token failed", task.exception)
+                 return@OnCompleteListener
+             }
+
+             // Get new FCM registration token
+             val token = task.result
+             Log.i("PushN", "Token " + token)
+
+         })
 
     }
     override fun onBackPressed() {

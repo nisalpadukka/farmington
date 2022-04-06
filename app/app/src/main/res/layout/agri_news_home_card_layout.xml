@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/article_detail"
+            android:id="@+id/article_summary"
             android:layout_width="236dp"
             android:layout_height="wrap_content"
             android:padding="10dp"

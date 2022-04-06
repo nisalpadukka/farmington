@@ -67,7 +67,7 @@
             android:background="#FBFAFA"
             android:backgroundTint="#B8E9C4"
             android:fontFamily="serif"
-            android:text="Barley is any annual cereal grass  of the genus  Hordeum, and in particular the species Hordeum vulgare. The term also is used for the edible grain of these plants."
+            android:text=""
             android:textColor="#200D0D"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="23dp"
