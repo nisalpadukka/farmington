@@ -3,12 +3,14 @@ package com.georgian.farmington
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.georgian.farmington.databinding.ActivityRegistrationBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 
 
@@ -44,6 +46,9 @@ class RegistrationActivity : AppCompatActivity() {
     private fun registerUser() {
         val email = binding.etxtemail.text.toString().trim()
         val pwd = binding.etxtpassword.text.toString().trim()
+        val fname = binding.etxtfname.text.toString().trim()
+        val lname = binding.etxtlname.text.toString().trim()
+        val mob = binding.etxtmobile.text.toString().trim()
 
         if (email.isNotEmpty() && pwd.isNotEmpty()) {
             userfirebase.createUserWithEmailAndPassword(email, pwd)
@@ -51,6 +56,15 @@ class RegistrationActivity : AppCompatActivity() {
 
                     if (task.isSuccessful()) {
 
+                        val profileUpdates = userProfileChangeRequest {
+                            displayName = "$fname $lname"
+                        }
+                        Firebase.auth.currentUser!!.updateProfile(profileUpdates)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    Log.d("TAG", "User profile updated.")
+                                }
+                            }
                         Toast.makeText(this, "user registered in successfully", Toast.LENGTH_SHORT)
                             .show()
                         startActivity(Intent(this, LoginActivity::class.java))

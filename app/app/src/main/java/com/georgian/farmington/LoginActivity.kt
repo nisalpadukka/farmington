@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(LoginActivity()) { task ->
 
                     if (task.isSuccessful()) {
-                        Toast.makeText(this, "user added successfully", Toast.LENGTH_SHORT)
+                        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT)
                             .show()
                         startActivity(Intent(this, HomeActivity::class.java))
                         finish()
