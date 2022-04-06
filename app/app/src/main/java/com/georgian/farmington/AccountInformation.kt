@@ -92,6 +92,7 @@ class AccountInformation : AppCompatActivity() {
                 Toast.makeText(this, "User Name can not be Empty", Toast.LENGTH_SHORT)
                     .show()
             }
+            finish()
             val intent = Intent(this, AccountInformation::class.java)
             startActivity(intent)
         }
@@ -126,6 +127,7 @@ class AccountInformation : AppCompatActivity() {
                 Toast.makeText(this, "New Email can not be Empty", Toast.LENGTH_SHORT)
                     .show()
             }
+            finish()
             val intent = Intent(this, AccountInformation::class.java)
             startActivity(intent)
         }
@@ -161,6 +163,7 @@ class AccountInformation : AppCompatActivity() {
                 Toast.makeText(this, "New Email can not be Empty", Toast.LENGTH_SHORT)
                     .show()
             }
+            finish()
             val intent = Intent(this, AccountInformation::class.java)
             startActivity(intent)
         }
@@ -197,6 +200,9 @@ class AccountInformation : AppCompatActivity() {
             Toast.makeText(this, "Failed to Upload !! Please try again", Toast.LENGTH_SHORT)
                 .show()
         }
+        finish()
+        val intent = Intent(this, AccountInformation::class.java)
+        startActivity(intent)
     }
 
     private fun selectImage() {
