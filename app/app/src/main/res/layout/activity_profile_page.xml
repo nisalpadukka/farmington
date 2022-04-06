@@ -7,11 +7,7 @@
     android:padding="25dp"
     android:background="#C2E8C7">
 
-    <RelativeLayout
-        android:id="@+id/mainContainer"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:visibility="visible">
+
 
         <LinearLayout
             android:id="@+id/addressContainer"
@@ -32,9 +28,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="21dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <ImageView
                 android:id="@+id/profileImg"
@@ -48,7 +41,7 @@
                 android:layout_height="16dp" />
 
             <TextView
-                android:id="@+id/temp_max"
+                android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:layout_gravity="center"
@@ -57,19 +50,152 @@
 
         </LinearLayout>
 
-    </RelativeLayout>
 
-    <ProgressBar android:id="@+id/loader" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_centerInParent="true"
-        android:visibility="gone"/>
-    <TextView android:id="@+id/errorText" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_centerInParent="true"
-        android:visibility="gone" android:text="Something went wrong"/>
+
+
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/profile" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-38dp"
+        app:srcCompat="@drawable/rectangle_1" />
+
+    <LinearLayout
+        android:layout_width="351dp"
+        android:layout_height="364dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal"
+            android:textAlignment="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/accInfoImage"
+                android:layout_width="5dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10px"
+                app:srcCompat="@drawable/image_1" />
+
+            <TextView
+                android:id="@+id/accInfoText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10px"
+                android:text="ACCOUNT INFORMATION" />
+
+            <ImageButton
+                android:id="@+id/accInfoArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                app:srcCompat="@drawable/group_2" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal"
+            android:textAlignment="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/faqImage"
+                android:layout_width="5dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10px"
+                app:srcCompat="@drawable/image_2" />
+
+            <TextView
+                android:id="@+id/faqText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10px"
+                android:text="FAQs" />
+
+            <ImageButton
+                android:id="@+id/faqArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                app:srcCompat="@drawable/group_2" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal"
+            android:textAlignment="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/settingImage"
+                android:layout_width="5dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10px"
+                app:srcCompat="@drawable/image_3" />
+
+            <TextView
+                android:id="@+id/settingText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10px"
+                android:text="SETTINGS" />
+
+            <ImageButton
+                android:id="@+id/settingArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                app:srcCompat="@drawable/group_2" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal"
+            android:textAlignment="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/signOutImage"
+                android:layout_width="5dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10px"
+                app:srcCompat="@drawable/image_4" />
+
+            <TextView
+                android:id="@+id/signOutText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10px"
+                android:text="SIGN OUT" />
+
+            <ImageButton
+                android:id="@+id/signOutArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                app:srcCompat="@drawable/group_2" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
