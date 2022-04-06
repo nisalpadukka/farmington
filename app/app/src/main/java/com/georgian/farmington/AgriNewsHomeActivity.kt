@@ -1,5 +1,6 @@
 package com.georgian.farmington
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
 
-class AgriNewsHomeActivity : AppCompatActivity() {
+class AgriNewsHomeActivity : AppCompatActivity(), AgriNewsRecyclerViewAdapter.OnArticleListner {
 
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var adapter: AgriNewsRecyclerViewAdapter
@@ -23,7 +24,7 @@ class AgriNewsHomeActivity : AppCompatActivity() {
 
         articleArrayList = arrayListOf()
 
-        adapter = AgriNewsRecyclerViewAdapter(articleArrayList)
+        adapter = AgriNewsRecyclerViewAdapter(articleArrayList, this)
         recyclerView.adapter = adapter;
 
         fetchNewsArticles();
@@ -52,5 +53,9 @@ class AgriNewsHomeActivity : AppCompatActivity() {
 
         })
 
+    }
+    override fun onArticleClick() {
+        val intent = Intent(this, AgriNewsActivity::class.java)
+        startActivity(intent)
     }
 }
