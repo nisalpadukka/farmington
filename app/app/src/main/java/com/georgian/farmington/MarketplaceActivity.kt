@@ -9,6 +9,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
 
+
 class MarketplaceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +55,7 @@ class MarketplaceActivity : AppCompatActivity() {
         val SoybeanButtonVar: ImageButton = findViewById (R.id.soybeanpicture)
         SoybeanButtonVar.setOnClickListener()
         {
-            val product:Product = Product("Soya","The soybean plant is usually an erect bush with woody stems and alternately arranged leaves. The leaves possess three individual leaflets which are oval or lance-like in shape.",
+            val product:Product = Product("Soybean","The soybean plant is usually an erect bush with woody stems and alternately arranged leaves. The leaves possess three individual leaflets which are oval or lance-like in shape.",
                 R.drawable.soybean, 45,650.0F)
             navigateToProductPage(product);
         }

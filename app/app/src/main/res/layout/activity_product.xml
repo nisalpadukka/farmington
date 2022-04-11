@@ -8,91 +8,126 @@
     android:backgroundTint="#B8E9C4"
     tools:context=".ProductActivity">
 
-    <LinearLayout
-        android:id="@+id/picContainer"
-        android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:background="#B8E9C4"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/bodyContainer"
-        app:layout_constraintEnd_toStartOf="@+id/bodyContainer"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="388dp"
+        android:layout_height="308dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="116dp"
+        android:elevation="10dp"
+
+        app:cardBackgroundColor="#E6F5E6"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!--com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/imageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:iss_auto_cycle="true"
+            app:iss_corner_radius="5"
+            app:iss_delay="0"
+            app:iss_error_image="@android:color/darker_gray"
+            app:iss_period="1000"
+            app:iss_placeholder="@android:color/darker_gray"
+            app:iss_selected_dot="@drawable/default_selected_dot"
+            app:iss_unselected_dot="@drawable/default_unselected_dot"
+            tools:ignore="MissingClass" /-->
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="230dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            app:srcCompat="@drawable/barley" />
+    </androidx.cardview.widget.CardView>
 
-            app:srcCompat="@drawable/barley"
-            tools:layout_editor_absoluteX="65dp"
-            tools:layout_editor_absoluteY="65dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/bodyContainer"
-        android:layout_width="match_parent"
-        android:layout_height="286dp"
-        android:orientation="vertical"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="407dp"
+        android:layout_height="333dp"
+        app:cardBackgroundColor="#E6F5E6"
+        app:cardCornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/picContainer"
-        app:layout_constraintTop_toBottomOf="@+id/picContainer">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
+            android:id="@+id/bodyContainer"
             android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:background="#FBFAFA"
-            android:backgroundTint="#B8E9C4"
-            android:fontFamily="serif"
-            android:text="Barley            $415/tonne"
-            android:textColor="#130808"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="23dp"
-            tools:layout_editor_absoluteY="322dp" />
+            android:layout_height="333dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="15dp" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="#FBFAFA"
+                android:backgroundTint="#E6F5E6"
+                android:fontFamily="sans-serif-light"
+                android:text="Barley        $415/tonne"
+                android:textAlignment="center"
+                android:textColor="#130808"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="23dp"
+                tools:layout_editor_absoluteY="322dp" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="25dp" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="55dp" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="105dp"
-            android:background="#FBFAFA"
-            android:backgroundTint="#B8E9C4"
-            android:fontFamily="serif"
-            android:text=""
-            android:textColor="#200D0D"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="23dp"
-            tools:layout_editor_absoluteY="429dp" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:background="#FBFAFA"
+                android:backgroundTint="#E6F5E6"
+                android:fontFamily="serif"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="#200D0D"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="23dp"
+                tools:layout_editor_absoluteY="429dp" />
 
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="25dp" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="45dp" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:background="#FBFAFA"
-            android:backgroundTint="#B8E9C4"
-            android:fontFamily="serif"
-            android:text="Quantity:                                      30 tonnes"
-            android:textColor="#200D0D"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="25dp"
-            tools:layout_editor_absoluteY="589dp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="#FBFAFA"
+                android:backgroundTint="#E6F5E6"
+                android:fontFamily="@font/exo2medium"
+                android:text="Quantity:                                      30 Tonnes"
+                android:textColor="#200D0D"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="25dp"
+                tools:layout_editor_absoluteY="589dp" />
 
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
