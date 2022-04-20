@@ -19,17 +19,28 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
+        var img=findViewById<ImageView>(R.id.icon1)
+        var animation: Animation = AnimationUtils.loadAnimation(this,R.anim.fade)
+        img.startAnimation(animation)
+
         thread(true)
         {
-            var img=findViewById<ImageView>(R.id.icon1)
-            var animation: Animation = AnimationUtils.loadAnimation(this,R.anim.fade)
-            img.startAnimation(animation)
-
 
             Thread.sleep(5000)
-            var intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            var pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
+            var user = pref.getString("email", "null")
+            if(user.equals("null")) {
+
+                var intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                var intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
         }
     }
 

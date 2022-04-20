@@ -1,5 +1,6 @@
 package com.georgian.farmington
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -8,6 +9,8 @@ import android.graphics.Path
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -52,7 +55,7 @@ class HomeActivity : AppCompatActivity() {
 
 
 
-         this.supportActionBar?.title = "Farmington - Home"
+         this.supportActionBar?.title = "Farmington"
 
 
 
@@ -95,6 +98,10 @@ class HomeActivity : AppCompatActivity() {
              Log.i("PushN", "Token " + token)
 
          })
+
+//         ONE TIME LOGIN LOGIC
+         var pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
+         var str = pref.getString("email","null")
 
     }
     override fun onBackPressed() {
@@ -140,5 +147,35 @@ class HomeActivity : AppCompatActivity() {
             length, // width
             length // height
         )
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.logout, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        Toast.makeText(this, "Logout Successfully", Toast.LENGTH_SHORT).show()
+//        var intent = Intent(this, LoginActivity::class.java)
+//        startActivity(intent)
+//        finish()
+//        return super.onOptionsItemSelected(item)
+        when(item!!.itemId)
+        {
+            R.id.item1->
+            {
+                var pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
+                var edit = pref.edit()
+                edit.clear()
+                edit.commit()
+
+                var intent = Intent(this,LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
