@@ -36,25 +36,18 @@ class AgriNewsHomeActivity : AppCompatActivity(), AgriNewsRecyclerViewAdapter.On
         db = FirebaseFirestore.getInstance();
         db.collection("Articles").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-
                 if (error != null) {
                     Log.e("Firebase", error.toString())
                     return
                 }
-
                 for (article : DocumentChange in value?.documentChanges!!){
-
                     if (article.type == DocumentChange.Type.ADDED){
                         articleArrayList.add(article.document.toObject(Article::class.java))
                     }
-
                 }
-
                 adapter.notifyDataSetChanged()
             }
-
         })
-
     }
     override fun onArticleClick(article: Article) {
         val intent = Intent(this, AgriNewsActivity::class.java)
