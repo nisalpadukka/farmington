@@ -22,9 +22,16 @@ import kotlin.math.min
 class AccountInformation : AppCompatActivity() {
     lateinit var binding: ActivityAccountInformationBinding
     lateinit var ImageUri: Uri
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account_information)
+
+        val displayNameText : EditText = findViewById(R.id.editdisplayName)
+        val emailText : EditText = findViewById(R.id.editdisplayEmail)
+        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
+        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
 
         binding = ActivityAccountInformationBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -62,108 +69,18 @@ class AccountInformation : AppCompatActivity() {
             profileImgImageView.setImageDrawable(getResources().getDrawable(R.drawable.default_profile))
 
         }
-        val displayNameText : EditText = findViewById(R.id.editdisplayName)
-        displayNameText.hint = "  "+Firebase.auth.currentUser?.displayName.toString()
-
-        val emailText : EditText = findViewById(R.id.editdisplayEmail)
-        emailText.hint = "  "+Firebase.auth.currentUser?.email.toString()
-
-        val emailPassText : EditText = findViewById(R.id.editdisplayPassword)
-        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
-        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
 
 
-        //UPDATE NAME
-        val updateName: Button = findViewById (R.id.saveUserName)
-        updateName.setOnClickListener()
-        {
-            if(displayNameText.text.toString() != ""){
-                val profileUpdates = userProfileChangeRequest {
-                    displayName = displayNameText.text.toString()
-                }
-                Firebase.auth.currentUser!!.updateProfile(profileUpdates)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            Log.d("TAG", "User profile updated.")
-                        }
-                    }
-            }
-            else{
-                Toast.makeText(this, "User Name can not be Empty", Toast.LENGTH_SHORT)
-                    .show()
-            }
-            val intent = Intent(this, AccountInformation::class.java)
-            startActivity(intent)
-        }
+        displayNameText.setText("  "+Firebase.auth.currentUser?.displayName.toString())
+        emailText.setText("  "+Firebase.auth.currentUser?.email.toString())
 
-        //UPDATE EMAIL
-        val updateEmail: Button = findViewById (R.id.saveNewEmail)
-        updateEmail.setOnClickListener()
-        {
-            if(emailText.text.toString() != ""){
-                Log.d("Check",Firebase.auth.currentUser?.email.toString()+" "+emailPassText.toString())
-                Firebase.auth.signInWithEmailAndPassword(Firebase.auth.currentUser?.email.toString(),emailPassText.text.toString())
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            // Sign in success now update email
-                            Firebase.auth.currentUser!!.updateEmail(emailText.text.toString())
-                                .addOnCompleteListener { task ->
-                                    if (task.isSuccessful) {
-                                        Toast.makeText(this, "Email Successfully Updated", Toast.LENGTH_SHORT)
-                                            .show()
-                                    } else {
-                                        Toast.makeText(this, "Error Encountered", Toast.LENGTH_SHORT)
-                                            .show()
-                                    }
-                                }
-                        } else {
-                            Toast.makeText(this, "Wrong Email or Password !! TRY AGAIN", Toast.LENGTH_SHORT)
-                                .show()
-                        }
-                    }
-            }
-            else{
-                Toast.makeText(this, "New Email can not be Empty", Toast.LENGTH_SHORT)
-                    .show()
-            }
-            val intent = Intent(this, AccountInformation::class.java)
-            startActivity(intent)
+        //UPDATE INFO
+        val updateName: Button = findViewById (R.id.updateInfo)
+        updateName.setOnClickListener(){
+            updateInfo()
         }
 
 
-
-        //UPDATE PASSWORD
-        val updatePass: Button = findViewById (R.id.savePassword)
-        updatePass.setOnClickListener()
-        {
-            if(newPassText.text.toString() != ""){
-                Firebase.auth.signInWithEmailAndPassword(Firebase.auth.currentUser?.email.toString(),oldPassText.text.toString())
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            // Sign in success now update email
-                            Firebase.auth.currentUser!!.updatePassword(newPassText.text.toString())
-                                .addOnCompleteListener { task ->
-                                    if (task.isSuccessful) {
-                                        Toast.makeText(this, "Password Successfully Updated", Toast.LENGTH_SHORT)
-                                            .show()
-                                    } else {
-                                        Toast.makeText(this, "Error Encountered", Toast.LENGTH_SHORT)
-                                            .show()
-                                    }
-                                }
-                        } else {
-                            Toast.makeText(this, "Wrong Email or Password !! TRY AGAIN", Toast.LENGTH_SHORT)
-                                .show()
-                        }
-                    }
-            }
-            else{
-                Toast.makeText(this, "New Email can not be Empty", Toast.LENGTH_SHORT)
-                    .show()
-            }
-            val intent = Intent(this, AccountInformation::class.java)
-            startActivity(intent)
-        }
 
         //UPDATE IMAGE
         binding.selectImage.setOnClickListener{
@@ -172,6 +89,24 @@ class AccountInformation : AppCompatActivity() {
         binding.uploadImage.setOnClickListener{
             uploadImage()
         }
+
+    }
+    private  fun updateInfo(){
+        val displayNameText : EditText = findViewById(R.id.editdisplayName)
+        val emailText : EditText = findViewById(R.id.editdisplayEmail)
+        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
+        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
+
+        if(displayNameText.text.isNotEmpty()){
+            updateNameFun()
+        }
+        if(emailText.text.isNotEmpty()){
+            updateEmailFun()
+        }
+        if(newPassText.text.isNotEmpty()){
+            updatePassword()
+        }
+
 
     }
 
@@ -197,6 +132,104 @@ class AccountInformation : AppCompatActivity() {
             Toast.makeText(this, "Failed to Upload !! Please try again", Toast.LENGTH_SHORT)
                 .show()
         }
+        finish()
+        val intent = Intent(this, ProfilePageActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun updateNameFun(){
+        val displayNameText : EditText = findViewById(R.id.editdisplayName)
+        val emailText : EditText = findViewById(R.id.editdisplayEmail)
+        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
+        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
+        if(displayNameText.text.toString() != ""){
+            val profileUpdates = userProfileChangeRequest {
+                displayName = displayNameText.text.toString()
+            }
+            Firebase.auth.currentUser!!.updateProfile(profileUpdates)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Log.d("TAG", "User profile updated.")
+                    }
+                }
+        }
+        else{
+            Toast.makeText(this, "User Name can not be Empty", Toast.LENGTH_SHORT)
+                .show()
+        }
+        finish()
+        val intent = Intent(this, ProfilePageActivity::class.java)
+        startActivity(intent)
+    }
+
+    private  fun updateEmailFun() {
+        val displayNameText : EditText = findViewById(R.id.editdisplayName)
+        val emailText : EditText = findViewById(R.id.editdisplayEmail)
+        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
+        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
+            if(emailText.text.toString() != ""){
+                Firebase.auth.signInWithEmailAndPassword(Firebase.auth.currentUser?.email.toString(),oldPassText.text.toString())
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success now update email
+                            Firebase.auth.currentUser!!.updateEmail(emailText.text.toString())
+                                .addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        Toast.makeText(this, "Email Successfully Updated", Toast.LENGTH_SHORT)
+                                            .show()
+                                    } else {
+                                        Toast.makeText(this, "Error Encountered", Toast.LENGTH_SHORT)
+                                            .show()
+                                    }
+                                }
+                        } else {
+                            Toast.makeText(this, "Wrong Email or Password !! TRY AGAIN", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    }
+            }
+            else{
+                Toast.makeText(this, "New Email can not be Empty", Toast.LENGTH_SHORT)
+                    .show()
+            }
+            finish()
+            val intent = Intent(this, ProfilePageActivity::class.java)
+            startActivity(intent)
+        }
+
+    private fun updatePassword(){
+        val displayNameText : EditText = findViewById(R.id.editdisplayName)
+        val emailText : EditText = findViewById(R.id.editdisplayEmail)
+        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
+        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
+        if(newPassText.text.toString() != ""){
+            Firebase.auth.signInWithEmailAndPassword(Firebase.auth.currentUser?.email.toString(),oldPassText.text.toString())
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success now update email
+                        Firebase.auth.currentUser!!.updatePassword(newPassText.text.toString())
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    Toast.makeText(this, "Password Successfully Updated", Toast.LENGTH_SHORT)
+                                        .show()
+                                } else {
+                                    Toast.makeText(this, "Error Encountered", Toast.LENGTH_SHORT)
+                                        .show()
+                                }
+                            }
+                    } else {
+                        Toast.makeText(this, "Wrong Email or Password !! TRY AGAIN", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+        }
+        else{
+            Toast.makeText(this, "New Email can not be Empty", Toast.LENGTH_SHORT)
+                .show()
+        }
+        finish()
+        val intent = Intent(this, ProfilePageActivity::class.java)
+        startActivity(intent)
     }
 
     private fun selectImage() {
