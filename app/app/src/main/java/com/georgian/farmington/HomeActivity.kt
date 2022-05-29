@@ -26,6 +26,8 @@ class HomeActivity : AppCompatActivity() {
 
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+         this.supportActionBar?.title = "Farmington - Profile"
         setContentView(R.layout.activity_home)
         // Create a storage reference from our app
 
@@ -51,13 +53,6 @@ class HomeActivity : AppCompatActivity() {
              profileImgImageView.setImageDrawable(getResources().getDrawable(R.drawable.default_profile))
 
          }
-
-
-
-
-         this.supportActionBar?.title = "Farmington"
-
-
 
         val agriNewsButtonVar: ImageButton = findViewById (R.id.agrinewsButton)
         agriNewsButtonVar.setOnClickListener()

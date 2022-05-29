@@ -57,6 +57,7 @@
             android:id = "@+id/contentBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:layout_margin="@dimen/text_margin"
             android:text="Test" />
 
