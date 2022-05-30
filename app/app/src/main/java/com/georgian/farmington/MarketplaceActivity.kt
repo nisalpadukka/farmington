@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -72,6 +73,13 @@ class MarketplaceActivity : AppCompatActivity() {
             val product:Product = Product("Mustard","Mustards, (Brassica spp.) are herbaceous annual plants in the family Brassicaceae grown for their seeds which are used as a spice. Mustard plants are thin herbaceous herbs with yellow flowers.",
                 R.drawable.mustardpic, 21,1435.0F)
             navigateToProductPage(product);
+        }
+
+        val NewlistingVar: Button = findViewById (R.id.newlisting)
+        NewlistingVar.setOnClickListener()
+        {
+            val intent = Intent(this, NewProductActivity::class.java)
+            startActivity(intent)
         }
 
     }

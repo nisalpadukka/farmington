@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Farmington"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".NewProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".AccountInformation"
             android:exported="false" />
         <activity
@@ -40,7 +43,7 @@
             android:theme="@style/Theme.Farmington.NoActionBar" />
         <activity
             android:name=".HomeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -48,7 +51,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

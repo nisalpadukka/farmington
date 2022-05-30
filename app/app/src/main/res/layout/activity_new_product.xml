@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountInformation">
-
+    tools:context=".NewProductActivity">
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
@@ -33,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Update Account Information"
+                android:text="Add New Product"
                 android:textSize="20dp" />
 
 
@@ -50,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="130dp"
                 android:layout_gravity="center"
-                android:src="@drawable/default_profile" />
+                android:src="@drawable/product_default" />
 
             <Space
                 android:layout_width="match_parent"
@@ -92,12 +91,12 @@
 
                 <EditText
                     android:id="@+id/productName"
-                    android:layout_width="90pt"
+                    android:layout_width="100pt"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:alpha="0.8"
                     android:background="@drawable/editboxborder"
-                    android:hint="  First Name"
+                    android:hint="  Product Name"
                     android:imeOptions="actionNext"
                     android:singleLine="true" />
 
@@ -107,14 +106,16 @@
 
                 <EditText
                     android:id="@+id/productDes"
-                    android:layout_width="90pt"
-                    android:layout_height="48dp"
+                    android:layout_width="100pt"
+                    android:layout_height="wrap_content"
+                    android:maxLines="4"
+                    android:lines="4"
                     android:layout_gravity="center"
                     android:alpha="0.8"
                     android:background="@drawable/editboxborder"
-                    android:hint="  New Email"
+                    android:hint="Product Description"
                     android:imeOptions="actionNext"
-                    android:singleLine="true" />
+                    />
 
                 <Space
                     android:layout_width="match_parent"
@@ -122,32 +123,35 @@
 
                 <EditText
                     android:id="@+id/quantity"
-                    android:layout_width="90pt"
+                    android:layout_width="100pt"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:alpha="0.8"
                     android:background="@drawable/editboxborder"
-                    android:hint="  New Password"
+                    android:hint="  Quantity"
                     android:imeOptions="actionNext"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:inputType="phone" />
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <EditText
                     android:id="@+id/price"
-                    android:layout_width="90pt"
+                    android:layout_width="100pt"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:alpha="0.8"
                     android:background="@drawable/editboxborder"
-                    android:hint="  Current Password"
+                    android:hint="  Price"
                     android:imeOptions="actionNext"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:inputType="phone" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <Button
                     android:id="@+id/publishListing"
@@ -155,14 +159,10 @@
                     android:layout_height="wrap_content"
 
                     android:backgroundTint="#009B00"
-                    android:text="Update"
+                    android:text="Publish Listing"
                     android:textAlignment="center" />
 
             </LinearLayout>
-
         </LinearLayout>
-
-
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

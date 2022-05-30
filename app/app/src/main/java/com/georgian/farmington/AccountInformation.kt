@@ -15,7 +15,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import java.io.File
-import java.lang.Float.min
 import kotlin.math.min
 
 
@@ -30,10 +29,10 @@ class AccountInformation : AppCompatActivity() {
 
         this.supportActionBar?.title = "Farmington - Edit Profile"
 
-        val displayNameText : EditText = findViewById(R.id.editdisplayName)
-        val emailText : EditText = findViewById(R.id.editdisplayEmail)
-        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
-        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
+        val displayNameText : EditText = findViewById(R.id.productName)
+        val emailText : EditText = findViewById(R.id.productDes)
+        val oldPassText : EditText = findViewById(R.id.price)
+        val newPassText : EditText = findViewById(R.id.quantity)
 
         binding = ActivityAccountInformationBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -77,7 +76,7 @@ class AccountInformation : AppCompatActivity() {
         emailText.setText("  "+Firebase.auth.currentUser?.email.toString())
 
         //UPDATE INFO
-        val updateName: Button = findViewById (R.id.updateInfo)
+        val updateName: Button = findViewById (R.id.publishListing)
         updateName.setOnClickListener(){
             updateInfo()
         }
@@ -94,10 +93,10 @@ class AccountInformation : AppCompatActivity() {
 
     }
     private  fun updateInfo(){
-        val displayNameText : EditText = findViewById(R.id.editdisplayName)
-        val emailText : EditText = findViewById(R.id.editdisplayEmail)
-        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
-        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
+        val displayNameText : EditText = findViewById(R.id.productName)
+        val emailText : EditText = findViewById(R.id.productDes)
+        val oldPassText : EditText = findViewById(R.id.price)
+        val newPassText : EditText = findViewById(R.id.quantity)
 
         if(displayNameText.text.isNotEmpty()){
             updateNameFun()
@@ -140,10 +139,10 @@ class AccountInformation : AppCompatActivity() {
     }
 
     private fun updateNameFun(){
-        val displayNameText : EditText = findViewById(R.id.editdisplayName)
-        val emailText : EditText = findViewById(R.id.editdisplayEmail)
-        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
-        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
+        val displayNameText : EditText = findViewById(R.id.productName)
+        val emailText : EditText = findViewById(R.id.productDes)
+        val oldPassText : EditText = findViewById(R.id.price)
+        val newPassText : EditText = findViewById(R.id.quantity)
         if(displayNameText.text.toString() != ""){
             val profileUpdates = userProfileChangeRequest {
                 displayName = displayNameText.text.toString()
@@ -165,10 +164,10 @@ class AccountInformation : AppCompatActivity() {
     }
 
     private  fun updateEmailFun() {
-        val displayNameText : EditText = findViewById(R.id.editdisplayName)
-        val emailText : EditText = findViewById(R.id.editdisplayEmail)
-        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
-        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
+        val displayNameText : EditText = findViewById(R.id.productName)
+        val emailText : EditText = findViewById(R.id.productDes)
+        val oldPassText : EditText = findViewById(R.id.price)
+        val newPassText : EditText = findViewById(R.id.quantity)
         if(emailText.text.toString() != ""){
             Firebase.auth.signInWithEmailAndPassword(Firebase.auth.currentUser?.email.toString(),oldPassText.text.toString())
                 .addOnCompleteListener(this) { task ->
@@ -200,10 +199,10 @@ class AccountInformation : AppCompatActivity() {
     }
 
     private fun updatePassword(){
-        val displayNameText : EditText = findViewById(R.id.editdisplayName)
-        val emailText : EditText = findViewById(R.id.editdisplayEmail)
-        val oldPassText : EditText = findViewById(R.id.editdisplayOldPassword)
-        val newPassText : EditText = findViewById(R.id.editdisplayNewPassword)
+        val displayNameText : EditText = findViewById(R.id.productName)
+        val emailText : EditText = findViewById(R.id.productDes)
+        val oldPassText : EditText = findViewById(R.id.price)
+        val newPassText : EditText = findViewById(R.id.quantity)
         if(newPassText.text.toString() != ""){
             Firebase.auth.signInWithEmailAndPassword(Firebase.auth.currentUser?.email.toString(),oldPassText.text.toString())
                 .addOnCompleteListener(this) { task ->
