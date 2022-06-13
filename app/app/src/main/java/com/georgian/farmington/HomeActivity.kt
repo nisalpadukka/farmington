@@ -49,7 +49,14 @@ class HomeActivity : AppCompatActivity() {
 
          }
 
-
+//Initialize the bottom navigation view
+         //create bottom navigation view object
+         val bottomNavigationView = findViewById<bottomNavigationView
+                 >(R.id.bottom_nav)
+         findViewById<bottomnavigationview>(R.id.bottom_nav)
+             .setOnNavigationItemSelectedListener
+         bottomNavigationView.setupWithNavController(navController
+         )
 
 
          this.supportActionBar?.title = "Farmington - Home"
@@ -103,7 +110,7 @@ class HomeActivity : AppCompatActivity() {
 
     fun Bitmap.cropCircularArea(
         diameter:Int = min(width,height)
-    ): Bitmap?{
+    ): Bitmap? {
         val bitmap = Bitmap.createBitmap(
             width, // width in pixels
             height, // height in pixels
@@ -114,12 +121,12 @@ class HomeActivity : AppCompatActivity() {
 
         // create a circular path
         val path = Path()
-        val length = min(diameter, min(width,height))
+        val length = min(diameter, min(width, height))
         val radius = length / 2F // in pixels
         path.apply {
             addCircle(
-                width/2f,
-                height/2f,
+                width / 2f,
+                height / 2f,
                 radius,
                 Path.Direction.CCW
             )
@@ -127,10 +134,10 @@ class HomeActivity : AppCompatActivity() {
 
         // draw circular bitmap on canvas
         canvas.clipPath(path)
-        canvas.drawBitmap(this,0f,0f,null)
+        canvas.drawBitmap(this, 0f, 0f, null)
 
-        val x = (width - length)/2
-        val y = (height - length)/2
+        val x = (width - length) / 2
+        val y = (height - length) / 2
 
         // return cropped circular bitmap
         return Bitmap.createBitmap(
