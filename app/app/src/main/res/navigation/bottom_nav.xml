@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav"
+    app:startDestination="@id/homeActivity">
+
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.georgian.farmington.HomeActivity"
+        android:label="HomeActivity" />
+    <activity
+        android:id="@+id/accountInformation"
+        android:name="com.georgian.farmington.AccountInformation"
+        android:label="activity_account_information"
+        tools:layout="@layout/activity_account_information" />
+    <activity
+        android:id="@+id/profilePageActivity"
+        android:name="com.georgian.farmington.ProfilePageActivity"
+        android:label="ProfilePageActivity" />
+</navigation>
