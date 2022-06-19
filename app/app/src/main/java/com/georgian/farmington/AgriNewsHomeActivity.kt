@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.*
 
 class AgriNewsHomeActivity : AppCompatActivity(), AgriNewsRecyclerViewAdapter.OnArticleListner {
-
+    lateinit var bottomNav : BottomNavigationView
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var adapter: AgriNewsRecyclerViewAdapter
     private lateinit var db: FirebaseFirestore
@@ -20,6 +21,36 @@ class AgriNewsHomeActivity : AppCompatActivity(), AgriNewsRecyclerViewAdapter.On
 
         this.supportActionBar?.title = "Farmington - Agri News"
         setContentView(R.layout.activity_agri_news_home)
+        //navigation
+        bottomNav = findViewById(R.id.bottom_navigation) as BottomNavigationView
+
+        bottomNav.setOnNavigationItemReselectedListener {
+            when (it.itemId) {
+                R.id.news -> {
+
+
+                }
+                R.id.news -> {
+                    val intent = Intent(this, AgriNewsHomeActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.marketplace -> {
+                    val intent = Intent(this,MarketplaceActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.weather -> {
+                    val intent = Intent(this,WeatherActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.home-> {
+                    val intent = Intent(this,HomeActivity::class.java)
+                    startActivity(intent)
+
+                }
+            }
+        }
         layoutManager = LinearLayoutManager(this)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = layoutManager;

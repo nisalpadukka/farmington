@@ -49,6 +49,18 @@ class HomeActivity : AppCompatActivity() {
                      startActivity(intent)
                  }
                  R.id.marketplace -> {
+                     val intent = Intent(this,MarketplaceActivity::class.java)
+                     startActivity(intent)
+
+                 }
+                 R.id.weather -> {
+                     val intent = Intent(this,WeatherActivity::class.java)
+                     startActivity(intent)
+
+                 }
+                 R.id.home-> {
+                     val intent = Intent(this,HomeActivity::class.java)
+                     startActivity(intent)
 
                  }
              }

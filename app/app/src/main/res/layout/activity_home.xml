@@ -16,10 +16,11 @@
         android:layout_marginBottom="41dp"
         android:background="#d3f2d3"
         android:scaleType="fitCenter"
-        android:src="@drawable/weather"
+        android:src="@drawable/weather_1"
         android:text="Weather"
         app:layout_constraintBottom_toTopOf="@+id/agrinewsButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -95,6 +96,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/menu_navigation" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="202dp"
+        android:layout_height="101dp"
+        app:srcCompat="@drawable/weather_1"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="147dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.georgian.farmington.databinding.ActivityLoginBinding
 import com.georgian.farmington.databinding.ActivityWeatherBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import org.json.JSONObject
 import java.net.URL
@@ -21,13 +22,41 @@ import java.util.*
 class WeatherActivity : AppCompatActivity() {
     val CITY: String = "Barrie"
     val API: String = "c36ffcd6dbd3d32e3deb52499600743c"
-
+    lateinit var bottomNav : BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
 
         this.supportActionBar?.title = "Farmington - Weather"
+        bottomNav = findViewById(R.id.bottom_navigation) as BottomNavigationView
 
+        bottomNav.setOnNavigationItemReselectedListener {
+            when (it.itemId) {
+                R.id.weather -> {
+
+
+                }
+                R.id.news -> {
+                    val intent = Intent(this, AgriNewsHomeActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.marketplace -> {
+                    val intent = Intent(this,MarketplaceActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.weather -> {
+                    val intent = Intent(this,WeatherActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.home-> {
+                    val intent = Intent(this,HomeActivity::class.java)
+                    startActivity(intent)
+
+                }
+            }
+        }
         weatherTask().execute()
     }
 

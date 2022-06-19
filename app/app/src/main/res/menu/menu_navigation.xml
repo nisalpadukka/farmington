@@ -4,20 +4,21 @@
     <item
         android:id="@+id/news"
         android:title="News"
-        android:icon="@drawable/adaptive_icon"/>
+        android:icon="@drawable/news_icon"/>
     <item
         android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/adaptive_icon"/>
+        android:icon="@drawable/home"/>
 
     <item
         android:id="@+id/weather"
         android:title="Weather"
-        android:icon="@drawable/adaptive_icon"/>
+        android:icon="@drawable/weather"
+        />
 
     <item
         android:id="@+id/marketplace"
         android:title="Market"
-        android:icon="@drawable/adaptive_icon"/>
+        android:icon="@drawable/marketplace_icon"/>
 
 </menu>
