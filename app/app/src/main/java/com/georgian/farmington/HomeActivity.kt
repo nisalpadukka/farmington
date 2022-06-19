@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
@@ -24,11 +25,35 @@ import kotlin.math.min
 
 class HomeActivity : AppCompatActivity() {
 
+    lateinit var bottomNav : BottomNavigationView
+
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
          this.supportActionBar?.title = "Farmington - Profile"
         setContentView(R.layout.activity_home)
+
+        //navigation
+         bottomNav = findViewById(R.id.bottom_navigation) as BottomNavigationView
+
+         bottomNav.setOnNavigationItemReselectedListener {
+             when (it.itemId) {
+                 R.id.home -> {
+
+
+                 }
+                 R.id.news -> {
+                     val intent = Intent(this, AgriNewsHomeActivity::class.java)
+                     startActivity(intent)
+                 }
+                 R.id.marketplace -> {
+
+                 }
+             }
+         }
+
         // Create a storage reference from our app
 
          val storageRef = Firebase.storage.reference

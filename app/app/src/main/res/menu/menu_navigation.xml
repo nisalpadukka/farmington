@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/news"
+        android:title="News"
+        android:icon="@drawable/adaptive_icon"/>
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/adaptive_icon"/>
+
+    <item
+        android:id="@+id/weather"
+        android:title="Weather"
+        android:icon="@drawable/adaptive_icon"/>
+
+    <item
+        android:id="@+id/marketplace"
+        android:title="Market"
+        android:icon="@drawable/adaptive_icon"/>
+
+</menu>
