@@ -29,12 +29,4 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/menu_navigation" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/barley"
-        tools:layout_editor_absoluteX="196dp"
-        tools:layout_editor_absoluteY="477dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

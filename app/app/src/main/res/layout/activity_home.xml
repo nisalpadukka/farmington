@@ -97,13 +97,5 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/menu_navigation" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="202dp"
-        android:layout_height="101dp"
-        app:srcCompat="@drawable/weather_1"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="147dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
