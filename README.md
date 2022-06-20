@@ -1,2 +1,3 @@
 # farmington
-#Mobile application for farmers
+Mobile application for farmers
+
