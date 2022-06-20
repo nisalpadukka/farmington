@@ -197,5 +197,4 @@
                 app:srcCompat="@drawable/group_2" />
         </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

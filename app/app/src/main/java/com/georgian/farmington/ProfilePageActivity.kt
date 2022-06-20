@@ -12,6 +12,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -20,6 +21,7 @@ import java.lang.Float.min
 import kotlin.math.min
 
 class ProfilePageActivity : AppCompatActivity() {
+    lateinit var bottomNav : BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         val user = Firebase.auth.currentUser
         if (user != null) {
@@ -82,9 +84,6 @@ class ProfilePageActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-
-
-
 
     }
 
