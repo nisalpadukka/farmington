@@ -65,6 +65,8 @@ class NewProductActivity : AppCompatActivity() {
             uploadImage()
         }
 
+
+
     }
 
     private  fun updateInfo(){

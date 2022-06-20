@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.georgian.farmington.databinding.ActivityAccountInformationBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
@@ -21,6 +22,7 @@ import kotlin.math.min
 class AccountInformation : AppCompatActivity() {
     lateinit var binding: ActivityAccountInformationBinding
     lateinit var ImageUri: Uri
+    lateinit var bottomNav : BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

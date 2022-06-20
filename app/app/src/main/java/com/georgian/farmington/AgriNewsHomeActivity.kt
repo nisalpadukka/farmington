@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.*
 
 class AgriNewsHomeActivity : AppCompatActivity(), AgriNewsRecyclerViewAdapter.OnArticleListner {
@@ -14,6 +15,7 @@ class AgriNewsHomeActivity : AppCompatActivity(), AgriNewsRecyclerViewAdapter.On
     private lateinit var adapter: AgriNewsRecyclerViewAdapter
     private lateinit var db: FirebaseFirestore
     private lateinit var articleArrayList : ArrayList<Article>
+    lateinit var bottomNav : BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,33 @@ class AgriNewsHomeActivity : AppCompatActivity(), AgriNewsRecyclerViewAdapter.On
         recyclerView.adapter = adapter;
 
         fetchNewsArticles();
+
+        //navigation
+        bottomNav = findViewById(R.id.bottom_navigation) as BottomNavigationView
+        bottomNav.setOnNavigationItemReselectedListener {
+            when (it.itemId) {
+                R.id.news -> {
+                    val intent = Intent(this, AgriNewsHomeActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.marketplace -> {
+                    val intent = Intent(this,MarketplaceActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.weather -> {
+                    val intent = Intent(this,WeatherActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.home-> {
+                    val intent = Intent(this,HomeActivity::class.java)
+                    startActivity(intent)
+
+                }
+            }
+        }
+
     }
 
     private fun fetchNewsArticles(){

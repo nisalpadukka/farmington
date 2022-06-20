@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
 
 class MarketplaceActivity : AppCompatActivity() {
+    lateinit var bottomNav : BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_marketplace)
@@ -81,6 +83,33 @@ class MarketplaceActivity : AppCompatActivity() {
             val intent = Intent(this, NewProductActivity::class.java)
             startActivity(intent)
         }
+
+        //navigation
+        bottomNav = findViewById(R.id.bottom_navigation) as BottomNavigationView
+        bottomNav.setOnNavigationItemReselectedListener {
+            when (it.itemId) {
+                R.id.news -> {
+                    val intent = Intent(this, AgriNewsHomeActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.marketplace -> {
+                    val intent = Intent(this,MarketplaceActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.weather -> {
+                    val intent = Intent(this,WeatherActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.home-> {
+                    val intent = Intent(this,HomeActivity::class.java)
+                    startActivity(intent)
+
+                }
+            }
+        }
+
 
     }
 
