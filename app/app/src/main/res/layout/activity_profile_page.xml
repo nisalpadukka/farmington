@@ -1,98 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="25dp"
-    android:background="#C2E8C7">
+    android:background="@color/theme_color"
+    android:backgroundTint="#d3f2d3">
 
 
+    <LinearLayout
+        android:id="@+id/addressContainer"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/addressContainer"
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Profile"
+            android:textSize="45dp" />
+
+
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="289dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Profile"
-                android:textSize="45dp" />
+            android:layout_height="21dp" />
 
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="21dp" />
+        <ImageView
+            android:id="@+id/profileImg"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:src="@drawable/default_profile" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
-            <ImageView
-                android:id="@+id/profileImg"
-                android:layout_width="wrap_content"
-                android:layout_height="130dp"
-                android:src="@drawable/default_profile"
-                android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_gravity="center"
+            android:text="JOHN V."
+            android:textSize="20sp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp" />
-
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="wrap_content"
-                android:layout_height="27dp"
-                android:layout_gravity="center"
-                android:text="JOHN V."
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-
-
+    </LinearLayout>
 
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="336dp"
+        android:layout_height="346dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-38dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressContainer"
         app:srcCompat="@drawable/rectangle_1" />
 
     <LinearLayout
-        android:layout_width="351dp"
-        android:layout_height="364dp"
+        android:layout_width="320dp"
+        android:layout_height="332dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:orientation="vertical">
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressContainer">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="74dp"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:textAlignment="center"
-            android:gravity="center">
+            android:textAlignment="center">
 
             <ImageView
                 android:id="@+id/accInfoImage"
                 android:layout_width="5dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
                 android:layout_marginStart="10px"
+                android:layout_weight="1"
                 app:srcCompat="@drawable/image_1" />
 
             <TextView
                 android:id="@+id/accInfoText"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="10px"
+                android:layout_weight="1"
                 android:text="ACCOUNT INFORMATION" />
 
             <ImageButton
@@ -103,27 +107,28 @@
                 android:background="#FFFFFF"
                 app:srcCompat="@drawable/group_2" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="74dp"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:textAlignment="center"
-            android:gravity="center">
+            android:textAlignment="center">
 
             <ImageView
                 android:id="@+id/faqImage"
                 android:layout_width="5dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
                 android:layout_marginStart="10px"
+                android:layout_weight="1"
                 app:srcCompat="@drawable/image_2" />
 
             <TextView
                 android:id="@+id/faqText"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="10px"
+                android:layout_weight="1"
                 android:text="FAQs" />
 
             <ImageButton
@@ -134,27 +139,28 @@
                 android:background="#FFFFFF"
                 app:srcCompat="@drawable/group_2" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="74dp"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:textAlignment="center"
-            android:gravity="center">
+            android:textAlignment="center">
 
             <ImageView
                 android:id="@+id/settingImage"
                 android:layout_width="5dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
                 android:layout_marginStart="10px"
+                android:layout_weight="1"
                 app:srcCompat="@drawable/image_3" />
 
             <TextView
                 android:id="@+id/settingText"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="10px"
+                android:layout_weight="1"
                 android:text="SETTINGS" />
 
             <ImageButton
@@ -165,27 +171,28 @@
                 android:background="#FFFFFF"
                 app:srcCompat="@drawable/group_2" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="74dp"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:textAlignment="center"
-            android:gravity="center">
+            android:textAlignment="center">
 
             <ImageView
                 android:id="@+id/signOutImage"
                 android:layout_width="5dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
                 android:layout_marginStart="10px"
+                android:layout_weight="1"
                 app:srcCompat="@drawable/image_4" />
 
             <TextView
                 android:id="@+id/signOutText"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="10px"
+                android:layout_weight="1"
                 android:text="SIGN OUT" />
 
             <ImageButton
@@ -197,4 +204,17 @@
                 app:srcCompat="@drawable/group_2" />
         </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/teal_700"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/menu_navigation" />
+</androidx.constraintlayout.widget.ConstraintLayout>

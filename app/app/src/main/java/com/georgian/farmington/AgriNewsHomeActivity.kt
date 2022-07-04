@@ -56,6 +56,11 @@ class AgriNewsHomeActivity : AppCompatActivity(), AgriNewsRecyclerViewAdapter.On
                     startActivity(intent)
 
                 }
+                R.id.profile-> {
+                    val intent = Intent(this,ProfilePageActivity::class.java)
+                    startActivity(intent)
+
+                }
             }
         }
 

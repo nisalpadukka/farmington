@@ -59,6 +59,11 @@ class HomeActivity : AppCompatActivity() {
                      startActivity(intent)
 
                  }
+                 R.id.profile-> {
+                     val intent = Intent(this,ProfilePageActivity::class.java)
+                     startActivity(intent)
+
+                 }
              }
          }
 

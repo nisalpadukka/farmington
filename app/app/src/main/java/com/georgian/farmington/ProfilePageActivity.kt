@@ -39,6 +39,38 @@ class ProfilePageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_page)
 
+        //navigation
+        //navigation
+        bottomNav = findViewById(R.id.bottom_navigation) as BottomNavigationView
+        bottomNav.setOnNavigationItemReselectedListener {
+            when (it.itemId) {
+                R.id.news -> {
+                    val intent = Intent(this, AgriNewsHomeActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.marketplace -> {
+                    val intent = Intent(this,MarketplaceActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.weather -> {
+                    val intent = Intent(this,WeatherActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.home-> {
+                    val intent = Intent(this,HomeActivity::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.profile-> {
+                    val intent = Intent(this,ProfilePageActivity::class.java)
+                    startActivity(intent)
+
+                }
+            }
+        }
+
         this.supportActionBar?.title = "Farmington - Profile"
         val storageRef = Firebase.storage.reference
 
