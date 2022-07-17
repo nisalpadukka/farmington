@@ -151,5 +151,12 @@
             android:text="Register Here"
             android:textColor="#033505"
             android:textColorLink="#1B2C8B"/>
+
+        <com.google.android.gms.common.SignInButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/sign_in_button"/>
+
     </LinearLayout>
 </ScrollView>

@@ -90,7 +90,6 @@ class ProfilePageActivity : AppCompatActivity() {
 
         }.addOnFailureListener {
             // Handle any errors
-
             profileImgImageView.setImageDrawable(getResources().getDrawable(R.drawable.default_profile))
 
         }

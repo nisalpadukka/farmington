@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "462785178415-gpsvitboer671ei1n08hijlo4gacdj71.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.georgian.farmington",
+            "certificate_hash": "950ee5638809ef5a3864a5d65a5933b9d24c33a0"
+          }
+        },
+        {
           "client_id": "462785178415-9ae43cv9b2n22ujq0nq70ktrjlag3s8l.apps.googleusercontent.com",
           "client_type": 3
         }
