@@ -19,5 +19,9 @@
         android:id="@+id/marketplace"
         android:title="Market"
         android:icon="@drawable/ic_action_market"/>
+    <item
+        android:id="@+id/profile"
+        android:title="profile"
+        android:icon="@drawable/ic_action_profile"/>
 
 </menu>

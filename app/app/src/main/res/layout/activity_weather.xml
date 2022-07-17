@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d3f2d3"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    android:padding="25dp"
-    android:textAlignment="center">
+    android:background="@color/theme_color"
+    android:backgroundTint="#d3f2d3">
 
     <RelativeLayout
         android:id="@+id/mainContainer"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:visibility="visible">
+        android:layout_width="match_parent"
+        android:layout_height="596dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation">
 
         <LinearLayout
             android:id="@+id/addressContainer"
@@ -35,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="LOW:-3°"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
 
@@ -51,37 +50,26 @@
                 android:layout_height="27dp"
                 android:layout_gravity="center"
                 android:text="HIGH:2°"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/errorText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Something went wrong"
+                android:visibility="gone" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/overviewContainer"
             android:layout_width="341dp"
-            android:layout_height="182dp"
+            android:layout_height="152dp"
             android:layout_centerInParent="true"
             android:orientation="vertical">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-
-                <TextView
-                    android:id="@+id/temp"
-                    android:layout_width="93dp"
-                    android:layout_height="59dp"
-                    android:layout_gravity="center"
-                    android:fontFamily="sans-serif-thin"
-                    android:text="-2°C"
-                    android:textAlignment="center"
-                    android:textSize="35dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,12 +77,30 @@
                 android:orientation="vertical"
                 android:weightSum="3">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/temp"
+                        android:layout_width="78dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-thin"
+                        android:text="-2°C"
+                        android:textAlignment="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
                 <TextView
                     android:id="@+id/status"
-                    android:layout_width="71dp"
-                    android:layout_height="35dp"
+                    android:layout_width="93dp"
+                    android:layout_height="46dp"
                     android:layout_gravity="center"
-                    android:text="Snow"
+                    android:text="Sunny"
                     android:textAlignment="center"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -246,18 +252,27 @@
 
     </RelativeLayout>
 
-    <ProgressBar
-        android:id="@+id/loader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/teal_700"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/mainContainer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/menu_navigation" >
 
-    <TextView
-        android:id="@+id/errorText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Something went wrong"
-        android:visibility="gone" />
-</RelativeLayout>
+        <ProgressBar
+            android:id="@+id/loader"
+            android:layout_width="222dp"
+            android:layout_height="681dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
