@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -15,7 +16,7 @@ class MarketplaceActivity : AppCompatActivity(), MarketPlaceRecyclerViewAdapter.
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var adapter: MarketPlaceRecyclerViewAdapter
     private lateinit var db: FirebaseFirestore
-    private lateinit var productRowArrayList : ArrayList<ArrayList<Product>>
+    private lateinit var productArrayList : ArrayList<Product>
     lateinit var bottomNav : BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,13 +24,22 @@ class MarketplaceActivity : AppCompatActivity(), MarketPlaceRecyclerViewAdapter.
 
         this.supportActionBar?.title = "Farmington - Agri News"
         setContentView(R.layout.activity_marketplace)
-        layoutManager = LinearLayoutManager(this)
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewMarketplace)
-        recyclerView.layoutManager = layoutManager;
+        recyclerView.layoutManager = GridLayoutManager(
+            this, // context
+            2, // span count
+            RecyclerView.VERTICAL, // orientation
+            false // reverse layout
+        ).apply {
+            // specify the layout manager for recycler view
+            recyclerView.layoutManager = this
+        }
 
-        productRowArrayList = arrayListOf()
+        productArrayList = arrayListOf()
 
-        adapter = MarketPlaceRecyclerViewAdapter(productRowArrayList, this)
+
+        adapter = MarketPlaceRecyclerViewAdapter(productArrayList, this)
         recyclerView.adapter = adapter;
 
         fetchMarketPlaceActivity();
@@ -83,21 +93,10 @@ class MarketplaceActivity : AppCompatActivity(), MarketPlaceRecyclerViewAdapter.
                     return
                 }
 
-                var i = 0
-                var productRow = arrayListOf<Product>()
                 for (product : DocumentChange in value?.documentChanges!!){
 
                     if (product.type == DocumentChange.Type.ADDED){
-                        productRow.add(product.document.toObject(Product::class.java))
-                        i++
-                        if (i == 2) {
-                            i = 0
-                            productRow = arrayListOf<Product>()
-                        }
-
-                        if (i != 0){
-                            productRowArrayList.add(productRow)
-                        }
+                        productArrayList.add(product.document.toObject(Product::class.java))
                     }
                 }
 

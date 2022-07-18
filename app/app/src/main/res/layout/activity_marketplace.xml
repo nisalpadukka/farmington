@@ -27,6 +27,7 @@
                 android:textAlignment="center" />
         </RelativeLayout>
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMarketplace"
             android:layout_width="match_parent"

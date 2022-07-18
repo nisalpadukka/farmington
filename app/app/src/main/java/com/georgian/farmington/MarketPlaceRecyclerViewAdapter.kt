@@ -12,7 +12,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.File
 
-class MarketPlaceRecyclerViewAdapter(private val productRowList: ArrayList<ArrayList<Product>>, private val onProductListner: OnProductListner) : RecyclerView.Adapter<MarketPlaceRecyclerViewAdapter.ViewHolder>() {
+class MarketPlaceRecyclerViewAdapter(private val productList: ArrayList<Product>, private val onProductListner: OnProductListner) : RecyclerView.Adapter<MarketPlaceRecyclerViewAdapter.ViewHolder>() {
 
     val storageRef = Firebase.storage.reference
 
@@ -25,7 +25,7 @@ class MarketPlaceRecyclerViewAdapter(private val productRowList: ArrayList<Array
 
         holder.productPos = position
 
-        val product:Product = productRowList[position][0]
+        val product:Product = productList[position]
         holder.producNameLeft.text = product.product_name
         holder.productImageLeft.setImageResource(R.drawable.loading)
         val pathReference = storageRef.child("product_images/" + product.image)
@@ -35,27 +35,10 @@ class MarketPlaceRecyclerViewAdapter(private val productRowList: ArrayList<Array
         }.addOnFailureListener{
             holder.productImageLeft.setImageResource(R.drawable.ricepic)
         }
-
-        if ( productRowList[position].size < 2){
-            holder.productCardLayoutRight.visibility = View.GONE
-            return
-        }
-
-        val productRight:Product = productRowList[position][1]
-        holder.producNameRight.text = productRight.product_name
-        holder.productImageRight.setImageResource(R.drawable.loading)
-
-        val pathReferenceR = storageRef.child("product_images/" + productRight.image)
-        val localFileR = File.createTempFile(productRight.image, "png")
-        pathReferenceR.getFile(localFileR).addOnSuccessListener {
-            holder.productImageRight.setImageBitmap(BitmapFactory.decodeFile(localFileR.absolutePath))
-        }.addOnFailureListener{
-            holder.productImageRight.setImageResource(R.drawable.ricepic)
-        }
     }
 
     override fun getItemCount(): Int {
-        return productRowList.size
+        return productList.size
     }
     inner class ViewHolder(productView: View, onProductListner: OnProductListner): RecyclerView.ViewHolder(productView){
 
@@ -64,33 +47,21 @@ class MarketPlaceRecyclerViewAdapter(private val productRowList: ArrayList<Array
         var productPos:Int = 0
         var productCardLayoutLeft:CardView
 
-        var productImageRight:ImageView
-        var producNameRight:TextView
-        var productCardLayoutRight:CardView
 
         init {
             productImageLeft = productView.findViewById(R.id.leftItemImage)
             producNameLeft = productView.findViewById(R.id.leftItemProductName)
-            productCardLayoutLeft = productView.findViewById(R.id.leftItem)
-            productImageRight = productView.findViewById(R.id.rightItemImage)
-            producNameRight = productView.findViewById(R.id.rightItemProductName)
-            productCardLayoutRight = productView.findViewById(R.id.rightItem)
+            productCardLayoutLeft = productView.findViewById(R.id.market_place_card_view)
+
 
             productCardLayoutLeft.setOnClickListener(){
-                onProductListner.onProductListner(productRowList[productPos][0])
+                onProductListner.onProductListner(productList[productPos])
             }
 
             productImageLeft.setOnClickListener(){
-                onProductListner.onProductListner(productRowList[productPos][0])
+                onProductListner.onProductListner(productList[productPos])
             }
 
-            productCardLayoutRight.setOnClickListener(){
-                onProductListner.onProductListner(productRowList[productPos][1])
-            }
-
-            productImageRight.setOnClickListener(){
-                onProductListner.onProductListner(productRowList[productPos][1])
-            }
         }
 
     }
