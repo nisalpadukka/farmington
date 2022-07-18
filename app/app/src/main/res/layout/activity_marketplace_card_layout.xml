@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id = "@+id/market_place_card_view"
+    android:rowCount="3"
+    android:columnCount="2"
+    android:rowOrderPreserved="true"
+    android:columnOrderPreserved="true"
+    android:alignmentMode="alignMargins">
+
+    <androidx.cardview.widget.CardView
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        >
+        <LinearLayout
+            android:id="@+id/leftItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E6F5E6"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/leftItemImage"
+                android:layout_margin="10dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@drawable/wheat"
+                android:src="@drawable/wheat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="WHEAT"
+                android:textColor="#033505"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        >
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E6F5E6">
+
+            <ImageButton
+                android:id="@+id/ricepic"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@drawable/wheat"
+                android:src="@drawable/wheat"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="WHEAT"
+                android:textColor="#033505"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</GridLayout>
+

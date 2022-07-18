@@ -11,16 +11,17 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.File
 
-class AgriNewsRecyclerViewAdapter(private val articleList: ArrayList<Article>, private val onArticleListner: OnArticleListner) : RecyclerView.Adapter<AgriNewsRecyclerViewAdapter.ViewHolder>() {
+class MarketPlaceRecyclerViewAdapter(private val articleList: ArrayList<Article>, private val onArticleListner: OnArticleListner) : RecyclerView.Adapter<MarketPlaceRecyclerViewAdapter.ViewHolder>() {
 
     val storageRef = Firebase.storage.reference
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.agri_news_home_card_layout, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.activity_marketplace_card_layout, parent, false)
         return ViewHolder(v, onArticleListner)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        /*
         val article:Article = articleList[position]
         holder.articleTitle.text = article.title
         holder.articleSummary.text = article.summary
@@ -32,7 +33,7 @@ class AgriNewsRecyclerViewAdapter(private val articleList: ArrayList<Article>, p
             holder.articleImage.setImageBitmap(BitmapFactory.decodeFile(localFile.absolutePath))
         }.addOnFailureListener{
             holder.articleImage.setImageResource(R.drawable.ricepic)
-        }
+        }*/
     }
 
     override fun getItemCount(): Int {
@@ -40,19 +41,21 @@ class AgriNewsRecyclerViewAdapter(private val articleList: ArrayList<Article>, p
     }
     inner class ViewHolder(articleView: View, onArticleListner: OnArticleListner): RecyclerView.ViewHolder(articleView){
 
+        /*
         var articleImage:ImageView
         var articleTitle:TextView
         var articleSummary:TextView
-        var articlePos:Int = 0;
+        var articlePos:Int = 0;*/
 
         init {
-            articleImage = articleView.findViewById(R.id.article_image)
-            articleTitle = articleView.findViewById(R.id.article_title)
-            articleSummary = articleView.findViewById(R.id.article_summary)
+            //articleImage = articleView.findViewById(R.id.article_image)
+            //articleTitle = articleView.findViewById(R.id.article_title)
+            //articleSummary = articleView.findViewById(R.id.article_summary)
 
+            /*
             articleView.setOnClickListener(){
                 onArticleListner.onArticleClick(articleList[articlePos])
-            }
+            }*/
 
         }
 
