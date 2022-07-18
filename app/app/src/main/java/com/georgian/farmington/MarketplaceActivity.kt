@@ -22,7 +22,7 @@ class MarketplaceActivity : AppCompatActivity(), MarketPlaceRecyclerViewAdapter.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        this.supportActionBar?.title = "Farmington - Agri News"
+        this.supportActionBar?.title = "Farmington - Marketplace"
         setContentView(R.layout.activity_marketplace)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewMarketplace)
