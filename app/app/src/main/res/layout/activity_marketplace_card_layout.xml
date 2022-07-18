@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id = "@+id/market_place_card_view"
-    android:rowCount="3"
+    android:rowCount="1"
     android:columnCount="2"
     android:rowOrderPreserved="true"
     android:columnOrderPreserved="true"
     android:alignmentMode="alignMargins">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/leftItem"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         app:cardCornerRadius="10dp"
@@ -19,7 +20,6 @@
         android:elevation="5dp"
         >
         <LinearLayout
-            android:id="@+id/leftItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#E6F5E6"
@@ -31,20 +31,20 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
-                android:background="@drawable/wheat"
-                android:src="@drawable/wheat" />
+                 />
 
             <TextView
+                android:id="@+id/leftItemProductName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="WHEAT"
                 android:textColor="#033505"
                 android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/rightItem"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         app:cardCornerRadius="10dp"
@@ -57,18 +57,16 @@
             android:background="#E6F5E6">
 
             <ImageButton
-                android:id="@+id/ricepic"
+                android:id="@+id/rightItemImage"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
-                android:background="@drawable/wheat"
-                android:src="@drawable/wheat"
                 android:layout_margin="10dp"/>
             <TextView
+                android:id="@+id/rightItemProductName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="WHEAT"
                 android:textColor="#033505"
                 android:layout_gravity="center"
                 />

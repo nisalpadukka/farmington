@@ -4,17 +4,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.*
 
-class MarketplaceActivity : AppCompatActivity(), MarketPlaceRecyclerViewAdapter.OnArticleListner {
+class MarketplaceActivity : AppCompatActivity(), MarketPlaceRecyclerViewAdapter.OnProductListner {
 
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var adapter: MarketPlaceRecyclerViewAdapter
     private lateinit var db: FirebaseFirestore
-    private lateinit var articleArrayList : ArrayList<Article>
+    private lateinit var productRowArrayList : ArrayList<ArrayList<Product>>
     lateinit var bottomNav : BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,12 +27,19 @@ class MarketplaceActivity : AppCompatActivity(), MarketPlaceRecyclerViewAdapter.
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewMarketplace)
         recyclerView.layoutManager = layoutManager;
 
-        articleArrayList = arrayListOf()
+        productRowArrayList = arrayListOf()
 
-        adapter = MarketPlaceRecyclerViewAdapter(articleArrayList, this)
+        adapter = MarketPlaceRecyclerViewAdapter(productRowArrayList, this)
         recyclerView.adapter = adapter;
 
         fetchMarketPlaceActivity();
+
+        val NewlistingVar: Button = findViewById (R.id.newlisting)
+        NewlistingVar.setOnClickListener()
+        {
+            val intent = Intent(this, NewProductActivity::class.java)
+            startActivity(intent)
+        }
 
         //navigation
         bottomNav = findViewById(R.id.bottom_navigation) as BottomNavigationView
@@ -68,24 +76,38 @@ class MarketplaceActivity : AppCompatActivity(), MarketPlaceRecyclerViewAdapter.
 
     private fun fetchMarketPlaceActivity(){
         db = FirebaseFirestore.getInstance();
-        db.collection("Articles").addSnapshotListener(object : EventListener<QuerySnapshot> {
+        db.collection("products").addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if (error != null) {
                     Log.e("Firebase", error.toString())
                     return
                 }
-                for (article : DocumentChange in value?.documentChanges!!){
-                    if (article.type == DocumentChange.Type.ADDED){
-                        articleArrayList.add(article.document.toObject(Article::class.java))
+
+                var i = 0
+                var productRow = arrayListOf<Product>()
+                for (product : DocumentChange in value?.documentChanges!!){
+
+                    if (product.type == DocumentChange.Type.ADDED){
+                        productRow.add(product.document.toObject(Product::class.java))
+                        i++
+                        if (i == 2) {
+                            i = 0
+                            productRow = arrayListOf<Product>()
+                        }
+
+                        if (i != 0){
+                            productRowArrayList.add(productRow)
+                        }
                     }
                 }
+
                 adapter.notifyDataSetChanged()
             }
         })
     }
-    override fun onArticleClick(article: Article) {
-        val intent = Intent(this, AgriNewsActivity::class.java)
-        intent.putExtra("article", article)
+    override fun onProductListner(product: Product) {
+        val intent = Intent(this, ProductActivity::class.java)
+        intent.putExtra("product", product)
         startActivity(intent)
 
     }

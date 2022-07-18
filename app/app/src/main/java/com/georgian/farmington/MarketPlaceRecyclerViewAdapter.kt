@@ -6,63 +6,97 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.File
 
-class MarketPlaceRecyclerViewAdapter(private val articleList: ArrayList<Article>, private val onArticleListner: OnArticleListner) : RecyclerView.Adapter<MarketPlaceRecyclerViewAdapter.ViewHolder>() {
+class MarketPlaceRecyclerViewAdapter(private val productRowList: ArrayList<ArrayList<Product>>, private val onProductListner: OnProductListner) : RecyclerView.Adapter<MarketPlaceRecyclerViewAdapter.ViewHolder>() {
 
     val storageRef = Firebase.storage.reference
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.activity_marketplace_card_layout, parent, false)
-        return ViewHolder(v, onArticleListner)
+        return ViewHolder(v, onProductListner)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        /*
-        val article:Article = articleList[position]
-        holder.articleTitle.text = article.title
-        holder.articleSummary.text = article.summary
-        holder.articlePos = position
-        holder.articleImage.setImageResource(R.drawable.loading)
-        val pathReference = storageRef.child("article_images/" + article.image)
-        val localFile = File.createTempFile(article.image, "png")
+
+        holder.productPos = position
+
+        val product:Product = productRowList[position][0]
+        holder.producNameLeft.text = product.product_name
+        holder.productImageLeft.setImageResource(R.drawable.loading)
+        val pathReference = storageRef.child("product_images/" + product.image)
+        val localFile = File.createTempFile(product.image, "png")
         pathReference.getFile(localFile).addOnSuccessListener {
-            holder.articleImage.setImageBitmap(BitmapFactory.decodeFile(localFile.absolutePath))
+            holder.productImageLeft.setImageBitmap(BitmapFactory.decodeFile(localFile.absolutePath))
         }.addOnFailureListener{
-            holder.articleImage.setImageResource(R.drawable.ricepic)
-        }*/
+            holder.productImageLeft.setImageResource(R.drawable.ricepic)
+        }
+
+        if ( productRowList[position].size < 2){
+            holder.productCardLayoutRight.visibility = View.GONE
+            return
+        }
+
+        val productRight:Product = productRowList[position][1]
+        holder.producNameRight.text = productRight.product_name
+        holder.productImageRight.setImageResource(R.drawable.loading)
+
+        val pathReferenceR = storageRef.child("product_images/" + productRight.image)
+        val localFileR = File.createTempFile(productRight.image, "png")
+        pathReferenceR.getFile(localFileR).addOnSuccessListener {
+            holder.productImageRight.setImageBitmap(BitmapFactory.decodeFile(localFileR.absolutePath))
+        }.addOnFailureListener{
+            holder.productImageRight.setImageResource(R.drawable.ricepic)
+        }
     }
 
     override fun getItemCount(): Int {
-        return articleList.size
+        return productRowList.size
     }
-    inner class ViewHolder(articleView: View, onArticleListner: OnArticleListner): RecyclerView.ViewHolder(articleView){
+    inner class ViewHolder(productView: View, onProductListner: OnProductListner): RecyclerView.ViewHolder(productView){
 
-        /*
-        var articleImage:ImageView
-        var articleTitle:TextView
-        var articleSummary:TextView
-        var articlePos:Int = 0;*/
+        var productImageLeft:ImageView
+        var producNameLeft:TextView
+        var productPos:Int = 0
+        var productCardLayoutLeft:CardView
+
+        var productImageRight:ImageView
+        var producNameRight:TextView
+        var productCardLayoutRight:CardView
 
         init {
-            //articleImage = articleView.findViewById(R.id.article_image)
-            //articleTitle = articleView.findViewById(R.id.article_title)
-            //articleSummary = articleView.findViewById(R.id.article_summary)
+            productImageLeft = productView.findViewById(R.id.leftItemImage)
+            producNameLeft = productView.findViewById(R.id.leftItemProductName)
+            productCardLayoutLeft = productView.findViewById(R.id.leftItem)
+            productImageRight = productView.findViewById(R.id.rightItemImage)
+            producNameRight = productView.findViewById(R.id.rightItemProductName)
+            productCardLayoutRight = productView.findViewById(R.id.rightItem)
 
-            /*
-            articleView.setOnClickListener(){
-                onArticleListner.onArticleClick(articleList[articlePos])
-            }*/
+            productCardLayoutLeft.setOnClickListener(){
+                onProductListner.onProductListner(productRowList[productPos][0])
+            }
 
+            productImageLeft.setOnClickListener(){
+                onProductListner.onProductListner(productRowList[productPos][0])
+            }
+
+            productCardLayoutRight.setOnClickListener(){
+                onProductListner.onProductListner(productRowList[productPos][1])
+            }
+
+            productImageRight.setOnClickListener(){
+                onProductListner.onProductListner(productRowList[productPos][1])
+            }
         }
 
     }
 
-    public interface OnArticleListner{
-        fun onArticleClick(article: Article){
+    interface OnProductListner{
+        fun onProductListner(product: Product){
         }
     }
 }

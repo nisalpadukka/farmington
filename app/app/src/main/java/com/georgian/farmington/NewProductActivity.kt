@@ -104,7 +104,8 @@ class NewProductActivity : AppCompatActivity() {
             "product_name" to productName.text.toString(),
             "description" to productDes.text.toString(),
             "price" to price.text.toString(),
-            "quantity" to quantity.text.toString()
+            "quantity" to quantity.text.toString(),
+            "image" to productId.toString()
         )
 
         db = FirebaseFirestore.getInstance();

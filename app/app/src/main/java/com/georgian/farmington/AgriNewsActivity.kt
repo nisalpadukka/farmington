@@ -59,7 +59,6 @@ class AgriNewsActivity : AppCompatActivity(){
         activityNewsBinding.toolbarLayout.setBackgroundResource(R.drawable.loading)
         val pathReference = storageRef.child("article_images/" + article?.image)
 
-        pathReference.downloadUrl
         val localFile = File.createTempFile(article?.image, "png")
         pathReference.getFile(localFile).addOnSuccessListener {
             val drawable = BitmapDrawable(getResources(), BitmapFactory.decodeFile(localFile.absolutePath))

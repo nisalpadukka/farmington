@@ -1,25 +1,26 @@
 package com.georgian.farmington
 
-import android.media.Image
 import android.os.Parcel
 import android.os.Parcelable
 
-class Product(var title:String?= null, var description:String?= null,var imgUri:Int, var quantity: Int, var price:Float):Parcelable {
+
+class Product(var product_name:String?= null, var description:String?= null,var image:String?= null, var quantity: String?= null, var price:String?= null):
+    Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
-        parcel.readInt(),
-        parcel.readInt(),
-        parcel.readFloat()
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString()
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(title)
+        parcel.writeString(product_name)
         parcel.writeString(description)
-        parcel.writeInt(imgUri)
-        parcel.writeInt(quantity)
-        parcel.writeFloat(price)
+        parcel.writeString(image)
+        parcel.writeString(quantity)
+        parcel.writeString(price)
     }
 
     override fun describeContents(): Int {

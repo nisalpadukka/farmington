@@ -91,7 +91,7 @@
 
                 <EditText
                     android:id="@+id/productName"
-                    android:layout_width="100pt"
+                    android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:alpha="0.8"
@@ -106,7 +106,7 @@
 
                 <EditText
                     android:id="@+id/productDes"
-                    android:layout_width="100pt"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="4"
                     android:lines="4"
@@ -123,7 +123,7 @@
 
                 <EditText
                     android:id="@+id/quantity"
-                    android:layout_width="100pt"
+                    android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:alpha="0.8"
@@ -139,7 +139,7 @@
 
                 <EditText
                     android:id="@+id/price"
-                    android:layout_width="100pt"
+                    android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:alpha="0.8"
